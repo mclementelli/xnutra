@@ -24,7 +24,7 @@ interface Customer {
 }
 
 export const AdminDashboard = () => {
-    const [activeTab, setActiveTab] = useState<'pedidos' | 'clientes' | 'reportes' | 'contabilidad'>('pedidos');
+    const [activeTab, setActiveTab] = useState<'pedidos' | 'clientes' | 'stock' | 'reportes' | 'contabilidad'>('pedidos');
     const [searchTerm, setSearchTerm] = useState('');
     const [showOrderModal, setShowOrderModal] = useState(false);
 
@@ -40,6 +40,13 @@ export const AdminDashboard = () => {
         { id: 'CUS-003', name: 'Carlos Flores', email: 'carlos@email.com', city: 'Cochabamba', purchases: 1, totalSpent: 290, status: 'Activo', patologia: 'Quema de Grasa' },
     ]);
 
+    const stockItems = [
+        { id: 'SKU-V24', product: 'V-24 BioEnergía', quantity: 150, status: 'Optimal', max: 500 },
+        { id: 'SKU-TST', product: 'TestoMax Pro', quantity: 45, status: 'Low', max: 300 },
+        { id: 'SKU-FIT', product: 'Pills Fitness', quantity: 12, status: 'Critical', max: 400 },
+        { id: 'SKU-LIB', product: 'Libifem Balance', quantity: 230, status: 'Optimal', max: 400 },
+    ];
+
     const costs = [
         { label: 'Producción / Insumos', value: 2500, color: '#ff4444' },
         { label: 'Logística / Envíos', value: 850, color: '#ffa000' },
@@ -49,7 +56,11 @@ export const AdminDashboard = () => {
 
     const totalCostsValue = costs.reduce((acc, curr) => acc + curr.value, 0);
     const totalSales = orders.reduce((acc, curr) => acc + curr.amount, 0);
-    const netMargin = totalSales * 0.26;
+
+    // KPI Simulations
+    const monthlySales = 45200;
+    const dailySales = 3500;
+    const balance = monthlySales - totalCostsValue;
 
     const salesByVendedor = orders.reduce((acc: any, curr) => {
         acc[curr.vendedor] = (acc[curr.vendedor] || 0) + curr.amount;
@@ -65,29 +76,29 @@ export const AdminDashboard = () => {
                     </div>
                     <div>
                         <h1 className="text-5xl font-black italic tracking-tighter uppercase leading-none mb-2 text-[var(--text-color)]">CENTRO <span className="text-[var(--text-color)]/40">NEURONAL</span></h1>
-                        <p className="text-[10px] text-xnutra-neon/60 font-black tracking-[0.4em] uppercase">V4.1 GESTIÓN CONTABLE / BOLIVIA-2026</p>
+                        <p className="text-[10px] text-xnutra-neon/60 font-black tracking-[0.4em] uppercase">V4.5 GESTIÓN INTEGRAL / STOCK & FINANZAS</p>
                     </div>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 bg-[var(--panel-bg)] p-2 rounded-[2rem] border border-[var(--border-color)]">
-                    {(['pedidos', 'clientes', 'reportes', 'contabilidad'] as const).map((tab) => (
+                    {(['pedidos', 'clientes', 'stock', 'reportes', 'contabilidad'] as const).map((tab) => (
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest transition-all ${activeTab === tab ? 'bg-xnutra-neon text-black shadow-lg' : 'text-[var(--text-color)]/40 hover:text-[var(--text-color)]'}`}
                         >
-                            {tab === 'pedidos' ? 'Pedidos' : tab === 'clientes' ? 'Clientes' : tab === 'reportes' ? 'BI' : 'Contabilidad'}
+                            {tab === 'pedidos' ? 'Pedidos' : tab === 'clientes' ? 'Clientes' : tab === 'stock' ? 'Stock' : tab === 'reportes' ? 'BI' : 'Contabilidad'}
                         </button>
                     ))}
                 </div>
             </div>
 
-            {/* Métricas Financieras */}
+            {/* Métricas Financieras Actualizadas */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-                <MetricCard label="Ventas Totales" value={`Bs. ${totalSales.toFixed(2)}`} icon={DollarSign} color="var(--text-color)" />
-                <MetricCard label="Costos Operativos" value={`Bs. ${totalCostsValue.toFixed(2)}`} icon={FileText} color="#ff4444" />
-                <MetricCard label="Flujo Neto Proyectado" value={`Bs. ${netMargin.toFixed(2)}`} icon={TrendingUp} color="#3eff7e" />
-                <MetricCard label="Balance P&L" value="+Bs. 12,450" icon={Users} color="#00f2ff" />
+                <MetricCard label="Ventas Mes" value={`Bs. ${monthlySales.toLocaleString()}`} icon={TrendingUp} color="var(--text-color)" />
+                <MetricCard label="Ventas Día" value={`Bs. ${dailySales.toLocaleString()}`} icon={DollarSign} color="#3eff7e" />
+                <MetricCard label="Gastos Operativos" value={`Bs. ${totalCostsValue.toLocaleString()}`} icon={FileText} color="#ff4444" />
+                <MetricCard label="Balance General" value={`+Bs. ${balance.toLocaleString()}`} icon={Shield} color="#00f2ff" />
             </div>
 
             {/* Main Interface */}
@@ -95,14 +106,14 @@ export const AdminDashboard = () => {
                 <div className="p-10 border-b border-[var(--border-color)] bg-[var(--text-color)]/[0.02] flex flex-col md:flex-row items-center justify-between gap-8">
                     <div className="flex items-center gap-4">
                         <h3 className="text-2xl font-black italic uppercase tracking-tighter text-[var(--text-color)]">
-                            {activeTab === 'pedidos' ? 'Logística de Despacho' : activeTab === 'clientes' ? 'Directorio de Clientes' : activeTab === 'reportes' ? 'Análisis Estratégico' : 'Balances Financieros'}
+                            {activeTab === 'pedidos' ? 'Logística de Despacho' : activeTab === 'clientes' ? 'Directorio de Clientes' : activeTab === 'stock' ? 'Control de Inventario' : activeTab === 'reportes' ? 'Análisis Estratégico' : 'Balances Financieros'}
                         </h3>
-                        {activeTab !== 'contabilidad' && (
+                        {(activeTab === 'pedidos' || activeTab === 'stock') && (
                             <button
                                 onClick={() => setShowOrderModal(true)}
                                 className="bg-xnutra-neon/20 text-xnutra-neon text-[10px] font-black px-4 py-2 rounded-full uppercase flex items-center gap-2 hover:bg-xnutra-neon hover:text-black transition-all"
                             >
-                                <Plus size={14} /> NUEVO REGISTRO
+                                <Plus size={14} /> {activeTab === 'stock' ? 'Ajustar Inventario' : 'Nuevo Pedido'}
                             </button>
                         )}
                     </div>
@@ -119,7 +130,7 @@ export const AdminDashboard = () => {
                             />
                         </div>
                         <button className="flex items-center gap-3 px-6 py-4 bg-[var(--panel-bg)] border border-[var(--border-color)] rounded-2xl text-[10px] font-black uppercase text-[var(--text-color)]/40 hover:text-[var(--text-color)] transition-all">
-                            <Download size={16} /> Exportar BI
+                            <Download size={16} /> Exportar
                         </button>
                     </div>
                 </div>
@@ -132,7 +143,6 @@ export const AdminDashboard = () => {
                                     <th className="px-10 py-6">ID / Fecha</th>
                                     <th className="px-10 py-6">Cliente & Ubicación</th>
                                     <th className="px-10 py-6">Vendedor</th>
-                                    <th className="px-10 py-6">Monto</th>
                                     <th className="px-10 py-6">Estatus Logístico</th>
                                     <th className="px-10 py-6">Acción</th>
                                 </tr>
@@ -150,14 +160,13 @@ export const AdminDashboard = () => {
                                             <div className="flex flex-col">
                                                 <span className="font-black text-[var(--text-color)] italic tracking-tighter uppercase mb-1">{order.customer}</span>
                                                 <div className="flex items-center gap-2 text-[10px] text-[var(--text-color)]/30 font-bold">
-                                                    <MapIcon size={12} className="text-xnutra-neon" /> {order.city} (Ver en Mapa)
+                                                    <MapIcon size={12} className="text-xnutra-neon" /> {order.city}
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-10 py-8">
                                             <span className="px-3 py-1 bg-[var(--panel-bg)] rounded-lg text-[10px] font-black text-[var(--text-color)]/60">{order.vendedor}</span>
                                         </td>
-                                        <td className="px-10 py-8 font-black text-xl italic text-[var(--text-color)]/90">Bs {order.amount.toFixed(2)}</td>
                                         <td className="px-10 py-8">
                                             <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest ${order.status === 'Cobrado' ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400'}`}>
                                                 {order.status}
@@ -180,7 +189,6 @@ export const AdminDashboard = () => {
                                     <th className="px-10 py-6">Patología Base</th>
                                     <th className="px-10 py-6">Ciudad</th>
                                     <th className="px-10 py-6">Frecuencia</th>
-                                    <th className="px-10 py-6">Total Invertido</th>
                                     <th className="px-10 py-6">Estatus</th>
                                 </tr>
                             </thead>
@@ -203,11 +211,58 @@ export const AdminDashboard = () => {
                                         </td>
                                         <td className="px-10 py-8 font-bold text-sm text-[var(--text-color)]">{cus.city}</td>
                                         <td className="px-10 py-8 font-black italic text-[var(--text-color)]">{cus.purchases} PEDIDOS</td>
-                                        <td className="px-10 py-8 font-black text-xl italic text-xnutra-neon">Bs {cus.totalSpent.toFixed(2)}</td>
                                         <td className="px-10 py-8">
                                             <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest ${cus.status === 'Premium' ? 'bg-purple-500/20 text-purple-400 border border-purple-500/20' : 'bg-[var(--panel-bg)] text-[var(--text-color)]/40'}`}>
                                                 {cus.status}
                                             </span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    ) : activeTab === 'stock' ? (
+                        <table className="w-full text-left">
+                            <thead>
+                                <tr className="text-[10px] font-black uppercase text-[var(--text-color)]/20 tracking-[0.3em] border-b border-[var(--border-color)]">
+                                    <th className="px-10 py-6">SKU / Producto</th>
+                                    <th className="px-10 py-6">Disponibilidad</th>
+                                    <th className="px-10 py-6">Estado de Inventario</th>
+                                    <th className="px-10 py-6">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-[var(--border-color)]">
+                                {stockItems.map((item) => (
+                                    <tr key={item.id} className="hover:bg-[var(--text-color)]/[0.02] transition-colors group">
+                                        <td className="px-10 py-8">
+                                            <div className="flex flex-col">
+                                                <span className="font-black text-[var(--text-color)] italic uppercase text-xl mb-1">{item.product}</span>
+                                                <span className="text-[9px] text-[var(--text-color)]/40 font-bold uppercase tracking-widest">{item.id}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-10 py-8">
+                                            <div className="flex items-center gap-4">
+                                                <span className="text-3xl font-black italic text-[var(--text-color)]">{item.quantity}</span>
+                                                <span className="text-[10px] font-bold uppercase text-[var(--text-color)]/40">Unidades</span>
+                                            </div>
+                                            <div className="w-48 h-1.5 bg-[var(--border-color)] rounded-full mt-2 overflow-hidden">
+                                                <div
+                                                    className={`h-full ${item.status === 'Critical' ? 'bg-red-500' : item.status === 'Low' ? 'bg-orange-500' : 'bg-green-500'}`}
+                                                    style={{ width: `${(item.quantity / item.max) * 100}%` }}
+                                                />
+                                            </div>
+                                        </td>
+                                        <td className="px-10 py-8">
+                                            <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest border ${item.status === 'Critical' ? 'bg-red-500/10 text-red-500 border-red-500/20' :
+                                                    item.status === 'Low' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
+                                                        'bg-green-500/10 text-green-500 border-green-500/20'
+                                                }`}>
+                                                {item.status === 'Critical' ? 'Crítico (Reabastecer)' : item.status === 'Low' ? 'Bajo Stock' : 'Stock Saludable'}
+                                            </span>
+                                        </td>
+                                        <td className="px-10 py-8">
+                                            <button className="px-6 py-3 bg-[var(--text-color)] text-[var(--bg-color)] rounded-xl text-[10px] font-black uppercase hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-xnutra-neon/20">
+                                                Gestionar
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}
