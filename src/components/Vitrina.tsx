@@ -376,7 +376,7 @@ export const Vitrina = () => {
                             <div className="w-12 h-1 bg-xnutra-neon" />
                             <span className="text-xnutra-neon text-xs font-black uppercase tracking-[0.6em]">Exhibición de Bio-Tecnología</span>
                         </div>
-                        <h2 className="text-8xl md:text-9xl font-black text-[var(--text-color)] italic tracking-tighter leading-none mb-10 uppercase">
+                        <h2 className="text-5xl md:text-8xl lg:text-9xl font-black text-[var(--text-color)] italic tracking-tighter leading-none mb-10 uppercase">
                             NUESTROS <span className="text-xnutra-neon">PRODUCTOS</span>
                         </h2>
                         <p className="text-2xl text-white/60 font-bold italic leading-relaxed uppercase tracking-tighter max-w-2xl">

@@ -36,7 +36,7 @@ export const products: Product[] = [
         scientificProof: 'Protocolos de optimización metabólica (p=0.012).',
         usage: '1 cápsula (850mg) 20 min antes de la actividad.',
         price: 250,
-        image: '/src/assets/v-24.png',
+        image: '/assets/v-24.png',
         category: 'performance',
         color: '#00f2ff'
     },
@@ -55,7 +55,7 @@ export const products: Product[] = [
         scientificProof: 'Incremento documentado en la síntesis de energía celular.',
         usage: '1 cápsula (850mg) con abundante agua en la mañana.',
         price: 320,
-        image: '/src/assets/testomax.png',
+        image: '/assets/testomax.png',
         category: 'performance',
         color: '#ff3e3e'
     },
@@ -74,7 +74,7 @@ export const products: Product[] = [
         scientificProof: 'Reducción del tejido adiposo mediante activación mitocondrial.',
         usage: '1 cápsula (850mg) antes de entrenar o en la mañana.',
         price: 420,
-        image: '/src/assets/pill fitness.png',
+        image: '/assets/pill fitness.png',
         category: 'wellness',
         color: '#3eff7e'
     },
@@ -93,7 +93,7 @@ export const products: Product[] = [
         scientificProof: 'Eficacia clínica en la regulación del ciclo y bienestar energético.',
         usage: '1 cápsula (850mg) diaria con la cena.',
         price: 290,
-        image: '/src/assets/libifem.png',
+        image: '/assets/libifem.png',
         category: 'hormonal',
         color: '#d43eff'
     }

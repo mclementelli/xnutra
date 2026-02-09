@@ -54,16 +54,8 @@ function App() {
             <nav className="fixed top-0 left-0 w-full z-[100] backdrop-blur-3xl border-b border-[var(--border-color)] bg-[var(--bg-color)]/40">
                 <div className="max-w-[1600px] mx-auto px-10 h-24 flex items-center justify-between">
                     <div className="flex items-center gap-6 cursor-pointer group" onClick={() => setActiveTab('vitrina')}>
-                        <div className="relative shrink-0">
-                            <div className="absolute inset-0 bg-xnutra-neon blur-2xl opacity-20 group-hover:opacity-40 transition-all duration-500" />
-                            <img
-                                src="/capsule-logo.png"
-                                alt="XNutra Logo"
-                                className="w-16 h-16 object-contain relative z-10 transform group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_20px_rgba(0,242,255,0.6)]"
-                            />
-                        </div>
                         <div className="flex flex-col">
-                            <h1 className="text-xl md:text-3xl font-black tracking-tighter text-[var(--text-color)] leading-[0.85] uppercase italic flex items-center gap-2">
+                            <h1 className="text-lg md:text-3xl font-black tracking-tighter text-[var(--text-color)] leading-[0.85] uppercase italic flex items-center gap-2">
                                 XNUTRA <span className="text-xnutra-neon">SOLUTIONS</span>
                             </h1>
                             <div className="flex items-center gap-2 mt-2">

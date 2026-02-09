@@ -9,9 +9,8 @@ export const Footer = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-start">
                     <div className="lg:col-span-5 space-y-12">
                         <div className="flex items-center gap-6 mb-12">
-                            <img src="/capsule-logo.png" alt="XNutra Logo" className="w-16 h-16 object-contain drop-shadow-[0_0_20px_rgba(0,242,255,0.4)]" />
                             <div className="flex flex-col">
-                                <h2 className="text-5xl font-black italic tracking-tighter text-[var(--text-color)] leading-none uppercase">XNUTRA <br /><span className="text-xnutra-neon">SOLUTIONS</span></h2>
+                                <h2 className="text-4xl md:text-5xl font-black italic tracking-tighter text-[var(--text-color)] leading-none uppercase">XNUTRA <br /><span className="text-xnutra-neon">SOLUTIONS</span></h2>
                                 <div className="flex items-center gap-2 mt-4">
                                     <div className="w-2 h-2 rounded-full bg-xnutra-neon animate-pulse" />
                                     <span className="text-[10px] font-black tracking-[0.4em] text-[var(--text-color)]/40 uppercase italic">Bolivia-2026 / Bio-Tech Extraction</span>

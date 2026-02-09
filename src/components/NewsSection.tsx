@@ -6,14 +6,14 @@ export const NewsSection = () => {
         {
             title: "Sinergia Molecular: Cómo el extracto de Fenogreco optimiza el eje hormonal",
             category: "Investigación",
-            image: "/src/assets/fenogreco.jpg",
+            image: "/assets/fenogreco.jpg",
             desc: "Estudios recientes demuestran que la pureza del 850mg en XNutra permite una absorción del 94%, superando estándares tradicionales.",
             icon: <FlaskConical className="text-xnutra-neon" />
         },
         {
             title: "Protocolo de Absorción: ¿Por qué 14 días para los primeros resultados?",
             category: "Bio-Ciencia",
-            image: "/src/assets/absorcion.jpg",
+            image: "/assets/absorcion.jpg",
             desc: "Explicamos el ciclo de saturación biológica y cómo nuestros compuestos atacan la fatiga desde el primer contacto.",
             icon: <Zap className="text-xnutra-neon" />
         },
@@ -35,7 +35,7 @@ export const NewsSection = () => {
                             <div className="w-12 h-[2px] bg-xnutra-neon" />
                             <span className="text-xnutra-neon font-black uppercase tracking-[0.4em] text-[10px]">News & Investigation</span>
                         </div>
-                        <h2 className="text-6xl md:text-8xl font-black italic text-[var(--text-color)] uppercase tracking-tighter leading-[0.7]">BIO-AVANCES <br /><span className="text-xnutra-neon">2026 BOLIVIA</span></h2>
+                        <h2 className="text-5xl md:text-8xl font-black italic text-[var(--text-color)] uppercase tracking-tighter leading-[0.7] mb-6 md:mb-0">BIO-AVANCES <br /><span className="text-xnutra-neon">2026 BOLIVIA</span></h2>
                     </div>
                     <p className="max-w-md text-[var(--text-color)]/40 font-bold italic border-l-4 border-[var(--border-color)] pl-8 uppercase tracking-tighter text-sm leading-tight">
                         "En XNutra Solutions, no vendemos productos; entregamos resultados comprobados mediante la transformación real de nuestros clientes."
