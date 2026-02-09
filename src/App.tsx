@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, ShoppingCart, User, Menu, Shield, Lock, Sun, Moon } from 'lucide-react';
+import { Zap, ShoppingCart, User, Menu, Shield, Lock, Sun, Moon, X } from 'lucide-react';
 import { Vitrina, ClinicalSheet } from './components/Vitrina'
 import { MedMatch } from './components/MedMatch'
 import { AdminDashboard } from './components/AdminDashboard'
@@ -16,6 +16,7 @@ function App() {
     const [showCheckout, setShowCheckout] = useState(false);
     const [showClinical, setShowClinical] = useState(false);
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Manejo de Tema (Claro/Oscuro)
     useEffect(() => {
@@ -115,10 +116,75 @@ function App() {
                                 <User size={24} />
                             </button>
                         )}
-                        <Menu size={28} className="lg:hidden cursor-pointer" />
+                        <Menu
+                            size={28}
+                            className="lg:hidden cursor-pointer hover:text-xnutra-neon transition-colors"
+                            onClick={() => setIsMobileMenuOpen(true)}
+                        />
                     </div>
                 </div>
             </nav>
+
+            {/* Mobile Menu Overlay */}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[150] bg-black/60 backdrop-blur-md lg:hidden"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-[var(--panel-bg)] border-l border-[var(--border-color)] shadow-2xl p-8 flex flex-col"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="flex justify-between items-center mb-12">
+                                <span className="text-xnutra-neon font-black tracking-[0.2em] uppercase text-sm">Menú</span>
+                                <button
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="p-2 rounded-full hover:bg-white/10 text-[var(--text-color)] transition-colors"
+                                >
+                                    <X size={24} />
+                                </button>
+                            </div>
+
+                            <div className="flex flex-col gap-6">
+                                {[
+                                    { id: 'vitrina', label: 'Vitrina', icon: <ShoppingCart size={20} /> },
+                                    { id: 'medmatch', label: 'MedMatch IA', icon: <Zap size={20} /> },
+                                    { id: 'admin', label: user ? 'Gestión' : 'Acceso', icon: user ? <Shield size={20} /> : <Lock size={20} /> }
+                                ].map((item) => (
+                                    <button
+                                        key={item.id}
+                                        onClick={() => {
+                                            setActiveTab(item.id);
+                                            setIsMobileMenuOpen(false);
+                                        }}
+                                        className={`flex items-center gap-4 text-sm font-black uppercase tracking-[0.2em] p-4 rounded-xl transition-all ${activeTab === item.id
+                                            ? 'bg-xnutra-neon/20 text-xnutra-neon border border-xnutra-neon/50'
+                                            : 'text-[var(--text-color)]/60 hover:text-[var(--text-color)] hover:bg-white/5'
+                                            }`}
+                                    >
+                                        {item.icon}
+                                        <span>{item.label}</span>
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="mt-auto pt-8 border-t border-[var(--border-color)]">
+                                <p className="text-[10px] text-[var(--text-color)]/30 font-black uppercase tracking-widest text-center">
+                                    XNutra v4.4.1 Mobile
+                                </p>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <main className="pt-24 min-h-screen">
                 <AnimatePresence mode="wait">
