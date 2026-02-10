@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, TrendingUp, DollarSign, Users, Search, Plus, FileText, Download, Map as MapIcon, ChevronRight, X } from 'lucide-react';
+import { Shield, TrendingUp, DollarSign, Search, Plus, FileText, Download, Map as MapIcon, ChevronRight, X } from 'lucide-react';
 
 interface Order {
     id: string;
@@ -253,8 +253,8 @@ export const AdminDashboard = () => {
                                         </td>
                                         <td className="px-10 py-8">
                                             <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest border ${item.status === 'Critical' ? 'bg-red-500/10 text-red-500 border-red-500/20' :
-                                                    item.status === 'Low' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
-                                                        'bg-green-500/10 text-green-500 border-green-500/20'
+                                                item.status === 'Low' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
+                                                    'bg-green-500/10 text-green-500 border-green-500/20'
                                                 }`}>
                                                 {item.status === 'Critical' ? 'Crítico (Reabastecer)' : item.status === 'Low' ? 'Bajo Stock' : 'Stock Saludable'}
                                             </span>

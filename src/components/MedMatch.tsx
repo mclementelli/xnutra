@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Activity, ArrowRight, CheckCircle2, FlaskConical, Target, Brain, Zap, AlertTriangle, MessageSquare, Heart, Pill, Stethoscope, Info, ShieldCheck } from 'lucide-react';
+import { Activity, ArrowRight, CheckCircle2, FlaskConical, Target, Brain, Zap, AlertTriangle, MessageSquare, Heart, Pill, Stethoscope, Info, ShieldCheck, User } from 'lucide-react';
 import { products } from '../data/products';
 
 interface Question {
@@ -28,6 +28,17 @@ const questions: Question[] = [
             { id: 'age_1', label: '18 - 30 Años', icon: Activity },
             { id: 'age_2', label: '31 - 50 Años', icon: Zap },
             { id: 'age_3', label: '50+ Años', icon: Target },
+        ]
+    },
+    {
+        id: 22,
+        text: "Género Biológico",
+        subtext: "Para definir el perfil hormonal base.",
+        didacticNote: "Hombres y mujeres poseen ejes hormonales distintos. XNutra calibra los precursores de testosterona o estrógenos según tu biología.",
+        type: 'health',
+        options: [
+            { id: 'gen_male', label: 'Hombre', icon: User },
+            { id: 'gen_female', label: 'Mujer', icon: User },
         ]
     },
     {
