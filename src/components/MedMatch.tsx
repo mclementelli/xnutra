@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, ArrowRight, CheckCircle2, FlaskConical, Target, Brain, Zap, AlertTriangle, MessageSquare, Heart, Pill, Stethoscope, Info, ShieldCheck, User } from 'lucide-react';
 import { products } from '../data/products';
+import { CheckoutFlow } from './CheckoutFlow';
+import { ClinicalSheet } from './ClinicalSheet';
 
 interface Question {
     id: number;
@@ -259,6 +261,8 @@ export const MedMatch = () => {
     const [showResult, setShowResult] = useState(false);
     const [isRiskDetected, setIsRiskDetected] = useState(false);
     const [started, setStarted] = useState(false);
+    const [showCheckout, setShowCheckout] = useState(false);
+    const [showClinicalSheet, setShowClinicalSheet] = useState(false);
 
     const handleAnswer = (questionId: number, optionId: string, isRisk?: boolean) => {
         if (isRisk) {
@@ -461,10 +465,16 @@ export const MedMatch = () => {
                                     </div>
 
                                     <div className="flex flex-col sm:flex-row gap-4">
-                                        <button className="bg-[var(--text-color)] text-[var(--bg-color)] px-12 py-7 rounded-[2.5rem] font-black uppercase text-lg hover:bg-xnutra-neon hover:text-black transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95">
+                                        <button
+                                            onClick={() => setShowCheckout(true)}
+                                            className="bg-[var(--text-color)] text-[var(--bg-color)] px-12 py-7 rounded-[2.5rem] font-black uppercase text-lg hover:bg-xnutra-neon hover:text-black transition-all flex items-center justify-center gap-3 shadow-xl hover:scale-105 active:scale-95"
+                                        >
                                             Adquirir este Producto <ArrowRight size={24} />
                                         </button>
-                                        <button className="bg-[var(--panel-bg)] border border-[var(--border-color)] text-[var(--text-color)] px-10 py-7 rounded-[2.5rem] font-black uppercase text-lg hover:bg-white/10 transition-all italic">
+                                        <button
+                                            onClick={() => setShowClinicalSheet(true)}
+                                            className="bg-[var(--panel-bg)] border border-[var(--border-color)] text-[var(--text-color)] px-10 py-7 rounded-[2.5rem] font-black uppercase text-lg hover:bg-white/10 transition-all italic"
+                                        >
                                             Ver Ficha Clínica
                                         </button>
                                     </div>
@@ -477,6 +487,22 @@ export const MedMatch = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* Modals */}
+            {recommendation && (
+                <>
+                    <CheckoutFlow
+                        product={recommendation}
+                        isOpen={showCheckout}
+                        onClose={() => setShowCheckout(false)}
+                    />
+                    <ClinicalSheet
+                        product={recommendation}
+                        isOpen={showClinicalSheet}
+                        onClose={() => setShowClinicalSheet(false)}
+                    />
+                </>
+            )}
         </div>
     );
 };
