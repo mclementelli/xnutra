@@ -74,15 +74,46 @@ const SocialLink = ({ icon, href }: any) => (
     </a>
 );
 
-const FooterGroup = ({ title, links }: any) => (
-    <div className="space-y-8">
-        <h4 className="text-[var(--text-color)]/20 text-[10px] font-black uppercase tracking-[0.5em] italic">{title}</h4>
-        <ul className="space-y-4">
-            {links.map((link: string) => (
-                <li key={link}>
-                    <a href="#" className="text-[var(--text-color)]/60 font-black italic uppercase tracking-tighter text-sm hover:text-xnutra-neon transition-colors">{link}</a>
-                </li>
-            ))}
-        </ul>
-    </div>
-);
+const FooterGroup = ({ title, links }: any) => {
+    const linkRoutes: Record<string, string> = {
+        'Vitrina': '#vitrina',
+        'MedMatch IA': '#medmatch',
+        'Noticias': '#noticias',
+        'Protocolos': '#vitrina',
+        'Políticas de Privacidad': '#',
+        'Términos de Uso': '#',
+        'Garantía 100%': '#',
+        'Aviso de Salud': '#'
+    };
+
+    const handleClick = (e: React.MouseEvent, link: string) => {
+        const route = linkRoutes[link];
+        if (route && route.startsWith('#') && route !== '#') {
+            e.preventDefault();
+            const element = document.querySelector(route);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    };
+
+    return (
+        <div className="space-y-8">
+            <h4 className="text-[var(--text-color)]/20 text-[10px] font-black uppercase tracking-[0.5em] italic">{title}</h4>
+            <ul className="space-y-4">
+                {links.map((link: string) => (
+                    <li key={link}>
+                        <a
+                            href={linkRoutes[link] || '#'}
+                            onClick={(e) => handleClick(e, link)}
+                            className="text-[var(--text-color)]/60 font-black italic uppercase tracking-tighter text-sm hover:text-xnutra-neon transition-colors cursor-pointer"
+                        >
+                            {link}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+

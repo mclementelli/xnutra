@@ -190,13 +190,19 @@ function App() {
                 <AnimatePresence mode="wait">
                     {activeTab === 'vitrina' && (
                         <motion.div key="vitrina" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                            <Vitrina />
-                            <NewsSection />
+                            <div id="vitrina">
+                                <Vitrina />
+                            </div>
+                            <div id="noticias">
+                                <NewsSection />
+                            </div>
                         </motion.div>
                     )}
                     {activeTab === 'medmatch' && (
                         <motion.div key="medmatch" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                            <MedMatch />
+                            <div id="medmatch">
+                                <MedMatch />
+                            </div>
                         </motion.div>
                     )}
                     {activeTab === 'admin' && (
