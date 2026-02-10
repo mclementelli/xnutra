@@ -28,7 +28,7 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                     className="bg-[var(--panel-bg)] border border-[var(--border-color)] w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-[4rem] relative shadow-[0_0_150px_rgba(0,0,0,0.5)]"
                 >
                     {/* Header */}
-                    <div className="sticky top-0 z-10 bg-[var(--panel-bg)]/95 backdrop-blur-xl border-b border-[var(--border-color)] p-8 md:p-12 rounded-t-[4rem]">
+                    <div className="bg-[var(--panel-bg)] border-b border-[var(--border-color)] p-8 md:p-12 rounded-t-[4rem]">
                         <button
                             onClick={onClose}
                             className="absolute top-8 right-8 md:top-12 md:right-12 text-[var(--text-color)]/40 hover:text-[var(--text-color)] transition-colors"
