@@ -51,7 +51,7 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                                     <Shield className="text-xnutra-neon" size={24} />
                                     <span className="text-xnutra-neon font-black text-xs uppercase tracking-[0.4em]">Ficha Clínica Oficial</span>
                                 </div>
-                                <h2 className="text-5xl md:text-7xl font-black italic mb-4 tracking-tighter text-[var(--text-color)] uppercase leading-none">{product.name}</h2>
+                                <h2 className="text-5xl md:text-7xl font-black italic mb-4 tracking-tighter text-[var(--text-color)] uppercase leading-none pr-6">{product.name}</h2>
                                 <p className="text-xl md:text-2xl font-black italic uppercase mb-6" style={{ color: product.color }}>{product.tagline}</p>
                                 <p className="text-[var(--text-color)]/70 text-base md:text-lg leading-relaxed font-medium max-w-2xl">{product.description}</p>
                             </div>
@@ -79,7 +79,7 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                                         className="bg-[var(--bg-color)] border border-[var(--border-color)] p-6 md:p-8 rounded-[2rem] hover:border-xnutra-neon/30 transition-all group"
                                     >
                                         <div className="flex items-start justify-between mb-4">
-                                            <h4 className="text-xl md:text-2xl font-black italic text-[var(--text-color)] uppercase tracking-tighter flex-1">{ingredient.name}</h4>
+                                            <h4 className="text-xl md:text-2xl font-black italic text-[var(--text-color)] uppercase tracking-tighter flex-1 pr-4">{ingredient.name}</h4>
                                             <span className="text-3xl md:text-4xl font-black italic text-xnutra-neon ml-4">{ingredient.mg}mg</span>
                                         </div>
                                         <p className="text-[var(--text-color)]/60 text-sm md:text-base mb-4 font-medium italic">{ingredient.description}</p>

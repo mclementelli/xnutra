@@ -36,7 +36,7 @@ const ProductCard = ({ product, onOpenClinical }: any) => {
                             <div className="w-2 h-2 rounded-full bg-xnutra-neon animate-pulse shadow-[0_0_10px_#00f2ff]" />
                             <span className="text-xnutra-neon text-[10px] font-black uppercase tracking-[0.4em]">Protocolo {product.category}</span>
                         </div>
-                        <h3 className="text-5xl font-black mb-4 text-[var(--text-color)] italic group-hover:text-xnutra-neon transition-colors leading-[0.8] tracking-tighter uppercase">{product.name}</h3>
+                        <h3 className="text-5xl font-black mb-4 text-[var(--text-color)] italic group-hover:text-xnutra-neon transition-colors leading-[0.8] tracking-tighter uppercase pr-4">{product.name}</h3>
                         <p className="text-lg text-[var(--text-color)]/70 mb-8 line-clamp-2 leading-tight font-bold italic opacity-80">
                             {product.tagline}
                         </p>
@@ -281,7 +281,7 @@ const DetailModal = ({ product, onClose, onOpenCheckout }: any) => {
                             <div className="w-12 h-[2px] bg-xnutra-neon" />
                             <span className="text-xnutra-neon font-black uppercase tracking-[0.4em] text-[10px]">Ficha Nutra mg</span>
                         </div>
-                        <h2 className="text-7xl md:text-8xl font-black italic text-[var(--text-color)] mb-8 uppercase tracking-tighter leading-[0.7]">{product.name}</h2>
+                        <h2 className="text-7xl md:text-8xl font-black italic text-[var(--text-color)] mb-8 uppercase tracking-tighter leading-[0.7] pr-6">{product.name}</h2>
                         <p className="text-[var(--text-color)] text-3xl mb-16 leading-tight font-black italic opacity-80 uppercase tracking-tighter">
                             {product.tagline}
                         </p>
@@ -304,7 +304,7 @@ const DetailModal = ({ product, onClose, onOpenCheckout }: any) => {
                                                     <span className="text-[12px] uppercase mt-1">mg</span>
                                                 </div>
                                                 <div className="flex-1 text-center md:text-left">
-                                                    <span className={`text-4xl font-black block mb-2 uppercase italic transition-colors tracking-tighter leading-none ${activeBenefits === item.name ? 'text-xnutra-neon' : 'text-[var(--text-color)]'}`}>{item.name}</span>
+                                                    <span className={`text-4xl font-black block mb-2 uppercase italic transition-colors tracking-tighter leading-none pr-4 ${activeBenefits === item.name ? 'text-xnutra-neon' : 'text-[var(--text-color)]'}`}>{item.name}</span>
                                                     <p className="text-[var(--text-color)]/40 text-[10px] font-black uppercase tracking-widest leading-loose">{item.description}</p>
                                                 </div>
                                                 <div className={`transition-transform duration-500 ${activeBenefits === item.name ? 'rotate-180 text-xnutra-neon' : 'text-[var(--text-color)]/20'}`}>
