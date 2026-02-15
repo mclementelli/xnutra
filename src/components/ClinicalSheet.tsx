@@ -95,7 +95,7 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                                     <Pill className="text-xnutra-neon" size={20} />
                                     <span className="text-xnutra-neon font-black text-xs uppercase tracking-widest">Concentración Total</span>
                                 </div>
-                                <p className="text-4xl md:text-5xl font-black italic text-[var(--text-color)]">850mg por cápsula</p>
+                                <p className="text-4xl md:text-5xl font-black italic text-[var(--text-color)]">800mg por cápsula</p>
                             </div>
                         </section>
 

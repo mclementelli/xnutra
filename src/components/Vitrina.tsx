@@ -50,7 +50,7 @@ const ProductCard = ({ product, onOpenClinical }: any) => {
                             </div>
                             <div className="text-right">
                                 <span className="text-[10px] text-xnutra-neon font-black block uppercase tracking-widest mb-1">Concentración</span>
-                                <span className="text-xl font-black text-[var(--text-color)]/40 italic">850mg</span>
+                                <span className="text-xl font-black text-[var(--text-color)]/40 italic">800mg</span>
                             </div>
                         </div>
 
@@ -97,7 +97,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                     <div className="text-center md:text-right md:border-l-4 md:border-black/10 md:pl-12 flex flex-col gap-4">
                         <div>
                             <span className="block text-xs font-black uppercase tracking-[0.3em] opacity-40 mb-2 italic underline decoration-black/20 underline-offset-4">Dosificación Concentrada</span>
-                            <span className="text-8xl font-black italic tracking-tighter">850<span className="text-3xl ml-3 opacity-30">MG</span></span>
+                            <span className="text-8xl font-black italic tracking-tighter">800<span className="text-3xl ml-3 opacity-30">MG</span></span>
                         </div>
                         <button
                             onClick={() => window.print()}
@@ -151,7 +151,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                         <div className="p-8 rounded-[3.5rem] bg-xnutra-neon/10 border border-xnutra-neon/20 italic">
                             <p className="text-xnutra-neon text-sm font-bold leading-relaxed">
                                 <span className="text-lg font-black block mb-2 underline decoration-xnutra-neon/30">NOTA MÉDICA:</span>
-                                "Fórmula recalibrada para 850mg de alta transferencia nutricional sin excipientes químicos."
+                                "Fórmula recalibrada para 800mg de alta transferencia nutricional sin excipientes químicos."
                             </p>
                         </div>
                     </div>
@@ -195,7 +195,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                                     <ShieldCheck size={18} /> Protocolo de Inocuidad
                                 </h4>
                                 <ul className="space-y-6">
-                                    {['Extractos estandarizados', 'Dosis 850mg purificada', 'Cápsulas vegetales', 'Sin efectos secundarios adversos'].map((txt, i) => (
+                                    {['Extractos estandarizados', 'Dosis 800mg purificada', 'Cápsulas vegetales', 'Sin efectos secundarios adversos'].map((txt, i) => (
                                         <li key={i} className="flex items-center gap-4 text-[var(--text-color)]/80 font-bold italic text-lg leading-none uppercase tracking-tighter">
                                             <span className="text-xnutra-neon font-black underline underline-offset-4 decoration-xnutra-neon/30">✓</span> {txt}
                                         </li>

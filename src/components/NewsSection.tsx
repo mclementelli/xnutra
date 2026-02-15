@@ -7,7 +7,7 @@ export const NewsSection = () => {
             title: "Sinergia Molecular: Cómo el extracto de Fenogreco optimiza el eje hormonal",
             category: "Investigación",
             image: "/assets/fenogreco.jpg",
-            desc: "Estudios recientes demuestran que la pureza del 850mg en XNutra permite una absorción del 94%, superando estándares tradicionales.",
+            desc: "Estudios recientes demuestran que la pureza del 800mg en XNutra permite una absorción del 94%, superando estándares tradicionales.",
             icon: <FlaskConical className="text-xnutra-neon" />
         },
         {

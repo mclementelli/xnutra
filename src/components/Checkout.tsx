@@ -74,7 +74,7 @@ export const Checkout = ({ product, onClose }: CheckoutProps) => {
                                 <div className="pt-8 space-y-4">
                                     <div className="flex justify-between items-center text-[var(--text-color)]/60 text-xs font-black uppercase tracking-widest italic">
                                         <span>Dosificación (1m)</span>
-                                        <span>850mg x 30</span>
+                                        <span>800mg x 30</span>
                                     </div>
                                     <div className="flex justify-between items-center text-[var(--text-color)]/60 text-xs font-black uppercase tracking-widest italic">
                                         <span>Envío Prioritario</span>
@@ -225,7 +225,7 @@ export const Checkout = ({ product, onClose }: CheckoutProps) => {
                                             </div>
                                             <div className="flex justify-between">
                                                 <span className="text-[var(--text-color)]/30 font-bold uppercase tracking-widest text-[10px]">Producto</span>
-                                                <span className="text-[var(--text-color)] font-black italic uppercase">{product.name} (850mg)</span>
+                                                <span className="text-[var(--text-color)] font-black italic uppercase">{product.name} (800mg)</span>
                                             </div>
                                             <div className="flex justify-between border-t border-[var(--border-color)] pt-4">
                                                 <span className="text-[var(--text-color)]/30 font-bold uppercase tracking-widest text-[10px]">Estado</span>

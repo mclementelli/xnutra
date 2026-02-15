@@ -113,7 +113,7 @@ const questions: Question[] = [
         id: 8,
         text: "Equilibrio Emocional",
         subtext: "¿Usa antidepresivos o ansiolíticos?",
-        didacticNote: "Extractos como la Maca o Fenogreco actúan sobre neurotransmisores. Buscamos evitar interferencias con su tratamiento psiquiátrico.",
+        didacticNote: "Extractos como la Maca o Ashwagandha actúan sobre neurotransmisores. Buscamos evitar interferencias con su tratamiento psiquiátrico.",
         type: 'medication',
         options: [
             { id: 'psy_yes', label: 'Sí, bajo medicación', icon: Brain },
@@ -448,7 +448,7 @@ export const MedMatch = () => {
                                 <div className="w-64 h-64 relative shrink-0">
                                     <div className="absolute inset-0 bg-xnutra-neon/30 blur-[60px] rounded-full" />
                                     <img src={recommendation?.image} alt={recommendation?.name} className="relative z-10 w-full h-full object-contain drop-shadow-[0_40px_60px_rgba(0,0,0,0.8)]" />
-                                    <div className="absolute bottom-0 right-0 bg-[var(--text-color)] text-[var(--bg-color)] px-4 py-2 rounded-xl font-black text-xs shadow-xl">850 MG</div>
+                                    <div className="absolute bottom-0 right-0 bg-[var(--text-color)] text-[var(--bg-color)] px-4 py-2 rounded-xl font-black text-xs shadow-xl">800 MG</div>
                                 </div>
                                 <div className="flex-1">
                                     <div className="flex items-center gap-3 mb-4">
@@ -460,7 +460,7 @@ export const MedMatch = () => {
 
                                     <div className="bg-[var(--panel-bg)] border border-[var(--border-color)] p-8 rounded-3xl mb-10">
                                         <p className="text-[var(--text-color)]/80 text-xl leading-relaxed font-bold italic">
-                                            Tu metabolismo es compatible con la dosis de <span className="text-xnutra-neon font-black">850mg por cápsula</span>. Este extracto optimizará tu eje hormonal y de rendimiento en los primeros 14 días.
+                                            Tu metabolismo es compatible con la dosis de <span className="text-xnutra-neon font-black">800mg por cápsula</span>. Este extracto optimizará tu eje hormonal y de rendimiento en los primeros 14 días.
                                         </p>
                                     </div>
 

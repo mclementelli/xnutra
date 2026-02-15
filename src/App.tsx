@@ -8,6 +8,10 @@ import { Login } from './components/Login'
 import { Checkout } from './components/Checkout'
 import { NewsSection } from './components/NewsSection'
 import { Footer } from './components/Footer'
+import { PrivacyPolicy } from './components/PrivacyPolicy'
+import { TermsOfService } from './components/TermsOfService'
+import { Guarantee } from './components/Guarantee'
+import { HealthNews } from './components/HealthNews'
 
 function App() {
     const [activeTab, setActiveTab] = useState('vitrina');
@@ -17,6 +21,12 @@ function App() {
     const [showClinical, setShowClinical] = useState(false);
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Función para cambiar tabs (pasaremos al Footer)
+    const handleTabChange = (tab: string) => {
+        setActiveTab(tab);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     // Manejo de Tema (Claro/Oscuro)
     useEffect(() => {
@@ -210,6 +220,26 @@ function App() {
                             {user ? <AdminDashboard /> : <Login onLogin={handleLogin} />}
                         </motion.div>
                     )}
+                    {activeTab === 'privacy' && (
+                        <motion.div key="privacy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <PrivacyPolicy />
+                        </motion.div>
+                    )}
+                    {activeTab === 'terms' && (
+                        <motion.div key="terms" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <TermsOfService />
+                        </motion.div>
+                    )}
+                    {activeTab === 'guarantee' && (
+                        <motion.div key="guarantee" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <Guarantee />
+                        </motion.div>
+                    )}
+                    {activeTab === 'health' && (
+                        <motion.div key="health" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            <HealthNews />
+                        </motion.div>
+                    )}
                 </AnimatePresence>
             </main>
 
@@ -223,7 +253,7 @@ function App() {
                 )}
             </AnimatePresence>
 
-            <Footer />
+            <Footer onNavigate={handleTabChange} />
         </div>
     )
 }
