@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BadgeCheck, RefreshCw, Award, Users, TrendingUp, Star, CheckCircle2 } from 'lucide-react';
+import { BadgeCheck, Award, Users, TrendingUp, Star, CheckCircle2 } from 'lucide-react';
 
 export const Guarantee = () => {
     const guaranteeSteps = [

@@ -1,6 +1,10 @@
 import { Instagram, Facebook, MessageCircle, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
-export const Footer = () => {
+interface FooterProps {
+    onNavigate?: (tab: string) => void;
+}
+
+export const Footer = ({ onNavigate }: FooterProps) => {
     return (
         <footer className="bg-[var(--bg-color)] py-40 px-6 md:px-10 border-t border-[var(--border-color)] relative overflow-hidden transition-colors duration-300">
             <div className="absolute -right-40 -bottom-40 w-[600px] h-[600px] bg-xnutra-neon/5 blur-[200px] rounded-full pointer-events-none" />
@@ -28,8 +32,8 @@ export const Footer = () => {
                     </div>
 
                     <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
-                        <FooterGroup title="Ecosistema" links={['Vitrina', 'MedMatch IA', 'Noticias', 'Protocolos']} />
-                        <FooterGroup title="Legal" links={['Políticas de Privacidad', 'Términos de Uso', 'Garantía 100%', 'Aviso de Salud']} />
+                        <FooterGroup onNavigate={onNavigate} title="Ecosistema" links={['Vitrina', 'MedMatch IA', 'Noticias', 'Protocolos']} />
+                        <FooterGroup onNavigate={onNavigate} title="Legal" links={['Políticas de Privacidad', 'Términos de Uso', 'Garantía 100%', 'Aviso de Salud']} />
                         <div className="col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-[var(--border-color)] pt-10 md:pt-0 md:pl-10">
                             <h4 className="text-xnutra-neon text-[10px] font-black uppercase tracking-[0.5em] mb-8 italic">Desarrollado por</h4>
                             <a
@@ -74,16 +78,16 @@ const SocialLink = ({ icon, href }: any) => (
     </a>
 );
 
-const FooterGroup = ({ title, links }: any) => {
+const FooterGroup = ({ title, links, onNavigate }: any) => {
     const linkRoutes: Record<string, string> = {
         'Vitrina': '#vitrina',
         'MedMatch IA': '#medmatch',
         'Noticias': '#noticias',
         'Protocolos': '#vitrina',
-        'Políticas de Privacidad': '#',
-        'Términos de Uso': '#',
-        'Garantía 100%': '#',
-        'Aviso de Salud': '#'
+        'Políticas de Privacidad': 'privacy',
+        'Términos de Uso': 'terms',
+        'Garantía 100%': 'guarantee',
+        'Aviso de Salud': 'news'
     };
 
     const handleClick = (e: React.MouseEvent, link: string) => {
@@ -94,6 +98,10 @@ const FooterGroup = ({ title, links }: any) => {
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+        } else if (onNavigate && route && !route.startsWith('#')) {
+            e.preventDefault();
+            onNavigate(route);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     };
 
