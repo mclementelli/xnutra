@@ -280,9 +280,14 @@ export const MedMatch = () => {
 
     const getRecommendation = () => {
         const goal = answers[19];
+        const gender = answers[22]; // gen_male / gen_female
+
         if (goal === 'lean') return products.find(p => p.id === 'pills-fitness');
-        if (goal === 'vital') return products.find(p => p.id === 'testomax' || p.id === 'libifem');
-        return products[0];
+        if (goal === 'vital') {
+            if (gender === 'gen_female') return products.find(p => p.id === 'libifem');
+            return products.find(p => p.id === 'testomax');
+        }
+        return products.find(p => p.id === 'testomax');
     };
 
     const recommendation = getRecommendation();
@@ -298,10 +303,10 @@ export const MedMatch = () => {
                             <ShieldCheck size={300} />
                         </div>
                         <p className="text-[var(--text-color)] text-xl leading-relaxed font-bold mb-6 italic">
-                            "En XNutra Solutions, no vendemos productos; entregamos resultados comprobados."
+                            "En XNutra Solutions, no vendemos cápsulas; entregamos resultados biológicos."
                         </p>
                         <p className="text-[var(--text-color)]/70 text-lg leading-relaxed mb-6 font-medium">
-                            Somos una empresa de extractos naturales premium que opera bajo un régimen de transparencia absoluta. Nuestra estrategia no es el permiso burocrático, sino la generación de confianza mediante la transformación real de nuestros clientes.
+                            Somos una empresa de extractos de grado científico que opera bajo protocolos de alta pureza. Nuestra estrategia no es el marketing convencional, sino la generación de confianza mediante la transformación física real.
                         </p>
                         <ul className="space-y-4 text-[var(--text-color)]/90 font-bold mb-10">
                             <li className="flex items-center gap-3"><CheckCircle2 className="text-xnutra-neon" size={20} /> Fórmulas Actualizadas 2026</li>

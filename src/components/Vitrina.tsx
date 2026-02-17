@@ -36,10 +36,10 @@ const ProductCard = ({ product, onOpenClinical }: any) => {
                             <div className="w-2 h-2 rounded-full bg-xnutra-neon animate-pulse shadow-[0_0_10px_#00f2ff]" />
                             <span className="text-xnutra-neon text-[10px] font-black uppercase tracking-[0.4em]">Protocolo {product.category}</span>
                         </div>
-                        <h3 className="text-4xl md:text-5xl font-black mb-4 text-[var(--text-color)] group-hover:text-xnutra-neon transition-colors leading-tight tracking-tight uppercase overflow-visible">
-                            <span className="italic inline-block pr-10">{product.name}</span>
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 text-[var(--text-color)] group-hover:text-xnutra-neon transition-colors leading-tight tracking-tight uppercase overflow-visible">
+                            <span className="italic inline-block pr-6 sm:pr-8 md:pr-10">{product.name}</span>
                         </h3>
-                        <p className="text-lg text-[var(--text-color)]/70 mb-8 line-clamp-2 leading-tight font-bold italic opacity-80">
+                        <p className="text-base sm:text-lg text-[var(--text-color)]/70 mb-8 line-clamp-2 leading-tight font-bold italic opacity-80">
                             {product.tagline}
                         </p>
                     </div>
@@ -93,7 +93,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                                 <span className="px-3 py-1 bg-black text-xnutra-neon text-[10px] font-black uppercase tracking-widest rounded-md">Confidencial</span>
                                 <span className="text-[10px] font-black uppercase tracking-widest opacity-40 italic">Auth: XNutra Scientific</span>
                             </div>
-                            <h2 className="text-6xl md:text-7xl font-black italic uppercase leading-[0.85] tracking-tighter">PERFIL CLÍNICO <br />DE ALTA PUREZA</h2>
+                            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black italic uppercase leading-[0.9] tracking-tighter">PERFIL CLÍNICO <br />DE ALTA PUREZA</h2>
                         </div>
                     </div>
                     <div className="text-center md:text-right md:border-l-4 md:border-black/10 md:pl-12 flex flex-col gap-4">
@@ -160,9 +160,9 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
 
                     <div className="lg:col-span-8 p-12 md:p-24 space-y-20">
                         <div>
-                            <div className="flex items-center gap-6 mb-16">
-                                <div className="h-[2px] w-24 bg-xnutra-neon" />
-                                <h3 className="text-4xl md:text-5xl font-black italic text-[var(--text-color)] uppercase tracking-tighter leading-none">Análisis de <br />Dosificación</h3>
+                            <div className="flex items-center gap-6 mb-12 sm:mb-16">
+                                <div className="h-[2px] w-12 sm:w-24 bg-xnutra-neon" />
+                                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-[var(--text-color)] uppercase tracking-tighter leading-none">Análisis de <br />Dosificación</h3>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

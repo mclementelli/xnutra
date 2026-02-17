@@ -59,6 +59,20 @@ function App() {
         setActiveTab('vitrina');
     };
 
+    // Expose navigation to footer and other components
+    useEffect(() => {
+        (window as any).navigateToSection = (tab: string) => {
+            setActiveTab(tab);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
+        // Handle direct links with hash
+        const hash = window.location.hash.replace('#', '');
+        if (['vitrina', 'medmatch', 'admin', 'noticias'].includes(hash)) {
+            setActiveTab(hash);
+        }
+    }, []);
+
     return (
         <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] font-sans selection:bg-xnutra-neon selection:text-black transition-colors duration-300">
             {/* Header / Nav */}
