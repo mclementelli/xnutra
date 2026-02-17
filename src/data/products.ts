@@ -22,27 +22,6 @@ export interface Product {
 
 export const products: Product[] = [
     {
-        id: 'v-24',
-        name: 'V-24',
-        tagline: 'BIOENERGÍA & VASODILATACIÓN TOTAL',
-        description: 'Complejo de alta pureza diseñado para la activación del óxido nítrico, permitiendo una entrega masiva de nutrientes mediante micro-cristales de rápida absorción.',
-        ingredients: ['Té Verde', 'Guaraná', 'L-Tirosina', 'Citrulina', 'Taurina', 'Proteína'],
-        formulation: [
-            { name: 'Té Verde', mg: 200, description: 'Antioxidante de Grado A.', benefits: 'Protege las mitocondrias y previene el envejecimiento celular prematuro.' },
-            { name: 'Guaraná', mg: 150, description: 'Estimulante botánico de liberación lenta.', benefits: 'Mantiene la alerta cognitiva sin causar el efecto "crash" de la cafeína.' },
-            { name: 'L-Tirosina', mg: 150, description: 'Precursor de neurotransmisores.', benefits: 'Mejora el enfoque mental y la respuesta al estrés físico.' },
-            { name: 'Citrulina', mg: 120, description: 'Potenciador de óxido nítrico.', benefits: 'Optimiza el flujo sanguíneo y la entrega de nutrientes en cada sesión.' },
-            { name: 'Taurina', mg: 120, description: 'Aminoácido modulador.', benefits: 'Regula el equilibrio hídrico y la función muscular.' },
-            { name: 'Proteína', mg: 60, description: 'Micro-fracción proteica.', benefits: 'Soporte estructural básico para la recuperación rápida.' }
-        ],
-        scientificProof: 'Protocolos de optimización metabólica (p=0.012).',
-        usage: '1 cápsula (800mg) 20 min antes de la actividad.',
-        price: 250,
-        image: '/assets/v-24.png',
-        category: 'performance',
-        color: '#00f2ff'
-    },
-    {
         id: 'testomax',
         name: 'TestoMax',
         tagline: 'VIGOR & POTENCIA CELULAR',

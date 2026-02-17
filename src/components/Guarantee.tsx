@@ -34,13 +34,6 @@ export const Guarantee = () => {
             product: "Libifem",
             rating: 5,
             comment: "Excelente producto. Mi ciclo se reguló y me siento con mucha más vitalidad. Totalmente recomendado."
-        },
-        {
-            name: "Roberto P.",
-            location: "La Paz",
-            product: "V-24",
-            rating: 5,
-            comment: "La vasodilatación es real. Mis entrenamientos mejoraron notablemente. Calidad premium."
         }
     ];
 

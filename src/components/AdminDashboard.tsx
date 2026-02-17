@@ -41,7 +41,6 @@ export const AdminDashboard = () => {
     ]);
 
     const stockItems = [
-        { id: 'SKU-V24', product: 'V-24 BioEnergía', quantity: 150, status: 'Optimal', max: 500 },
         { id: 'SKU-TST', product: 'TestoMax Pro', quantity: 45, status: 'Low', max: 300 },
         { id: 'SKU-FIT', product: 'Pills Fitness', quantity: 12, status: 'Critical', max: 400 },
         { id: 'SKU-LIB', product: 'Libifem Balance', quantity: 230, status: 'Optimal', max: 400 },

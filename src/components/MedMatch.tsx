@@ -238,7 +238,6 @@ const questions: Question[] = [
         didacticNote: "Este es el eje de tu recomendación. Seleccionamos el extracto con mayor afinidad a tu meta principal.",
         type: 'goal',
         options: [
-            { id: 'perf', label: 'Fuerza & Masa Muscular', icon: Activity },
             { id: 'lean', label: 'Quema de Grasa & Corte', icon: Target },
             { id: 'vital', label: 'Vitalidad & Libido', icon: Heart },
         ]
@@ -281,7 +280,6 @@ export const MedMatch = () => {
 
     const getRecommendation = () => {
         const goal = answers[19];
-        if (goal === 'perf') return products.find(p => p.id === 'v-24');
         if (goal === 'lean') return products.find(p => p.id === 'pills-fitness');
         if (goal === 'vital') return products.find(p => p.id === 'testomax' || p.id === 'libifem');
         return products[0];
@@ -455,7 +453,9 @@ export const MedMatch = () => {
                                         <Zap className="text-xnutra-neon" size={20} />
                                         <h4 className="text-xnutra-neon font-black font-mono text-sm uppercase tracking-[0.4em]">Solución Molecular</h4>
                                     </div>
-                                    <div className="text-7xl font-black italic mb-4 tracking-tighter text-[var(--text-color)] uppercase leading-none">{recommendation?.name}</div>
+                                    <div className="text-6xl md:text-7xl font-black mb-4 tracking-tight text-[var(--text-color)] uppercase leading-none overflow-visible">
+                                        <span className="italic inline-block pr-12">{recommendation?.name}</span>
+                                    </div>
                                     <p className="text-[var(--text-color)] text-2xl font-black mb-8 italic uppercase text-[var(--text-color)]/80 underline decoration-xnutra-neon underline-offset-8">{recommendation?.tagline}</p>
 
                                     <div className="bg-[var(--panel-bg)] border border-[var(--border-color)] p-8 rounded-3xl mb-10">
