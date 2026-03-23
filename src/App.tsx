@@ -19,7 +19,7 @@ function App() {
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
     const [showCheckout, setShowCheckout] = useState(false);
     const [showClinical, setShowClinical] = useState(false);
-    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+    const [theme, setTheme] = useState<'dark' | 'light'>('light');
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     // Función para cambiar tabs (pasaremos al Footer)
