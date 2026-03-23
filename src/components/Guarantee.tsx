@@ -29,12 +29,12 @@ export const Guarantee = () => {
             comment: "Después de 2 semanas noté un aumento significativo en mi energía y resistencia. XNutra cumplió su promesa."
         },
         {
-            name: "María L.",
+            name: "María Garcia",
             location: "Cochabamba",
-            product: "Libifem",
+            product: "Siluetta",
             rating: 5,
-            comment: "Excelente producto. Mi ciclo se reguló y me siento con mucha más vitalidad. Totalmente recomendado."
-        }
+            comment: "Recuperé mi energía desde la primera semana. El equilibrio constante es asombroso."
+        },
     ];
 
     const stats = [

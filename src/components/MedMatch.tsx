@@ -280,13 +280,9 @@ export const MedMatch = () => {
 
     const getRecommendation = () => {
         const goal = answers[19];
-        const gender = answers[22]; // gen_male / gen_female
 
-        if (goal === 'lean') return products.find(p => p.id === 'pills-fitness');
-        if (goal === 'vital') {
-            if (gender === 'gen_female') return products.find(p => p.id === 'libifem');
-            return products.find(p => p.id === 'testomax');
-        }
+        if (goal === 'lean') return products.find(p => p.id === 'siluetta');
+        if (goal === 'vital') return products.find(p => p.id === 'testomax');
         return products.find(p => p.id === 'testomax');
     };
 

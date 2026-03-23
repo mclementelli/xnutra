@@ -42,8 +42,7 @@ export const AdminDashboard = () => {
 
     const stockItems = [
         { id: 'SKU-TST', product: 'TestoMax Pro', quantity: 45, status: 'Low', max: 300 },
-        { id: 'SKU-FIT', product: 'Pills Fitness', quantity: 12, status: 'Critical', max: 400 },
-        { id: 'SKU-LIB', product: 'Libifem Balance', quantity: 230, status: 'Optimal', max: 400 },
+        { id: 'SKU-SIL', product: 'Siluetta', quantity: 230, status: 'Optimal', max: 400 },
     ];
 
     const costs = [
