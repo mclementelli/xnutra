@@ -36,7 +36,7 @@ export const products: Product[] = [
         ],
         scientificProof: 'Incremento documentado en la síntesis de energía celular.',
         usage: '1 cápsula (800mg) diaria.',
-        price: 320,
+        price: 399,
         image: '/assets/testomax.png',
         category: 'performance',
         color: '#ff3e3e'
@@ -55,7 +55,7 @@ export const products: Product[] = [
         ],
         scientificProof: 'Eficacia clínica en la regulación del peso y bienestar corporal.',
         usage: '1 cápsula (800mg) diaria con la cena.',
-        price: 290,
+        price: 399,
         image: '/assets/siluetta.png',
         category: 'wellness',
         color: '#d43eff'
