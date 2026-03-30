@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FlaskConical, Pill, Clock, Target, Shield, Zap } from 'lucide-react';
+import { X, FlaskConical, Pill, Clock, Target, Shield, Zap, Activity } from 'lucide-react';
 import { Product } from '../data/products';
 
 interface ClinicalSheetProps {
@@ -102,6 +102,24 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                                 <p className="text-4xl md:text-5xl font-black italic text-[var(--text-color)]">800mg por cápsula</p>
                             </div>
                         </section>
+
+                        {/* Mecanismo de Acción Clínico */}
+                        {product.clinicalProfile && (
+                            <section>
+                                <div className="flex items-center gap-4 mb-8">
+                                    <div className="w-12 h-12 rounded-2xl bg-xnutra-neon/20 flex items-center justify-center border border-xnutra-neon/30">
+                                        <Activity className="text-xnutra-neon" size={24} />
+                                    </div>
+                                    <h3 className="text-3xl md:text-4xl font-black italic uppercase tracking-tighter text-[var(--text-color)]">Mecanismo de Acción Clínico</h3>
+                                </div>
+                                <div className="bg-[var(--bg-color)] border border-[var(--border-color)] p-6 md:p-10 rounded-[2rem] hover:border-xnutra-neon/30 transition-all shadow-xl relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-xnutra-neon/5 blur-[100px] rounded-full pointer-events-none" />
+                                    <p className="text-[var(--text-color)]/90 text-justify text-base md:text-lg leading-loose font-medium relative z-10">
+                                        {product.clinicalProfile}
+                                    </p>
+                                </div>
+                            </section>
+                        )}
 
                         {/* Modo de Uso */}
                         <section>

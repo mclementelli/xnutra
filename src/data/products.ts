@@ -13,6 +13,7 @@ export interface Product {
     ingredients: string[];
     formulation: Formulation[];
     scientificProof?: string;
+    clinicalProfile?: string;
     usage: string;
     price: number;
     image: string;
@@ -35,6 +36,7 @@ export const products: Product[] = [
             { name: 'Extracto de Maca', mg: 145, description: 'Lepidium meyenii.', benefits: 'Apoya el rendimiento íntimo y energía total.' }
         ],
         scientificProof: 'Incremento documentado en la síntesis de energía celular.',
+        clinicalProfile: 'El mecanismo de acción de TestoMax se fundamenta en la modulación del eje hipotálamo-hipófisis-gonadal (HHG). La Icariina, su flavonoide bioactivo, actúa como un inhibidor natural de la enzima PDE5. Esto favorece una vasodilatación profunda del endotelio pélvico al incrementar los niveles de óxido nítrico, revirtiendo problemas de flujo sanguíneo y optimizando la función eréctil. Paralelamente, los extractos sinérgicos de Tribulus Terrestris y Maca Andina estimulan la secreción de la Hormona Luteinizante (LH). Esta hormona envía señales directas a las células de Leydig en los testículos para incrementar endógenamente la biosíntesis de testosterona libre. La adición de la Raíz de Ortiga aporta un mecanismo complementario crítico: sus lignanos se unen con alta afinidad a la globulina fijadora de hormonas sexuales (SHBG), impidiendo que esta proteína neutralice la testosterona, lo cual dispara los niveles de hormona biodisponible en el plasma sanguíneo. A nivel sistémico, el Ginseng ejerce una función como potente bioadaptógeno que disminuye el estrés oxidativo celular y revierte el daño mitocondrial crónico, restaurando la tasa de rendimiento neuromuscular y promoviendo una homeostasis endocrina que contribuye directamente a la desinflamación y protección de los tejidos prostáticos.',
         usage: '1 cápsula (800mg) diaria.',
         price: 399,
         image: '/assets/testomax.png',
@@ -54,6 +56,7 @@ export const products: Product[] = [
             { name: 'Té Verde', mg: 130, description: 'Camellia sinensis.', benefits: 'Acelerador metabólico para bienestar diario.' }
         ],
         scientificProof: 'Eficacia clínica en la regulación del peso y bienestar corporal.',
+        clinicalProfile: 'El perfil farmacodinámico de Siluetta opera mediante múltiples rutas metabólicas diseñadas para revertir el daño endocrino asociado a la resistencia a la insulina, la hipertrofia de los adipocitos y el estrés inflamatorio subyacente. El Ácido Hidroxicítrico (HCA), derivado del fruto de Garcinia Cambogia, ejerce un bloqueo competitivo sobre la enzima dependiente de ATP (citrato liasa), interrumpiendo abruptamente el ciclo de lipogénesis de novo (formación de nueva grasa) a nivel hepático. Este desvío enzimático promueve la reposición inmediata de las reservas de glucógeno endógeno, lo cual emite una señal aferente de saciedad de alta intensidad hacia el núcleo ventromedial del hipotálamo, suprimiendo efectivamente la hiperfagia neurogénica (hambre ansiosa). Simbiontemente, las potentes catequinas derivadas de la Camellia sinensis (Té Verde), en particular el Epigalocatequina galato (EGCG), previenen la degradación sináptica de la noradrenalina mediante la inhibición alostérica de la enzima Catecol-O-metiltransferasa (COMT). Esto sostiene una hiperactivación favorable del sistema nervioso autónomo simpático simpático e induce un estado de termogénesis celular continua que acelera exponencialmente la lipólisis intracelular (oxidación y descomposición de ácidos grasos a nivel mitocondrial). Su accionar sinérgico es catalizado por las propiedades colagogas y coleréticas del Diente de León junto a las antraquinonas purificadas de la Cáscara Sagrada. Esta interacción fitoquímica desencadena una depuración diurética-osmótica intensiva del tracto gastrointestinal y el sistema linfático. El resultado es la reversión del estasis venolinfático, una disminución drástica del edema por retención intersticial y una mitigación de la inflamación sistémica de bajo grado, restaurando la flexibilidad homeostática metabólica que recodifica el uso preferencial de la grasa almacenada, en lugar de glucosa exógena, para la generación de ATP.',
         usage: '1 cápsula (800mg) diaria con la cena.',
         price: 399,
         image: '/assets/siluetta.png',
