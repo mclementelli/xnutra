@@ -159,6 +159,23 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                     </div>
 
                     <div className="lg:col-span-8 p-12 md:p-24 space-y-20">
+                        {product.clinicalProfile && (
+                            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+                                <div className="flex items-center gap-6 mb-10 sm:mb-12">
+                                    <div className="h-[2px] w-12 sm:w-24 bg-xnutra-neon" />
+                                    <h3 className="text-3xl sm:text-4xl md:text-5xl font-black italic text-[var(--text-color)] uppercase tracking-tighter leading-none">Mecanismo de <br />Acción Clínico</h3>
+                                </div>
+                                <div className="bg-[var(--panel-bg)] border border-[var(--border-color)] p-8 md:p-12 rounded-[4rem] hover:border-xnutra-neon/40 transition-all shadow-xl relative overflow-hidden">
+                                    <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
+                                        <Activity size={200} />
+                                    </div>
+                                    <p className="text-[var(--text-color)]/90 text-justify text-base md:text-lg lg:text-xl leading-relaxed font-bold italic relative z-10">
+                                        {product.clinicalProfile}
+                                    </p>
+                                </div>
+                            </motion.div>
+                        )}
+
                         <div>
                             <div className="flex items-center gap-6 mb-12 sm:mb-16">
                                 <div className="h-[2px] w-12 sm:w-24 bg-xnutra-neon" />
