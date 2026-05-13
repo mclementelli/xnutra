@@ -17,8 +17,23 @@ export const Login = ({ onLogin }: LoginProps) => {
         // Simulación de autenticación biométrica/segura
         setTimeout(() => {
             setLoading(false);
-            if (email === 'admin@xnutra.com' && password === 'admin123') {
-                onLogin('Administrador');
+            const lowerEmail = email.toLowerCase();
+            if (lowerEmail === 'mauricio@xnutra.com' && password === 'admin123') {
+                localStorage.setItem('userRole', 'admin');
+                localStorage.setItem('userName', 'Mauricio');
+                onLogin('Mauricio');
+            } else if (lowerEmail === 'pierluigi@xnutra.com' && password === 'dist123') {
+                localStorage.setItem('userRole', 'distributor');
+                localStorage.setItem('userName', 'PierLuigi');
+                onLogin('PierLuigi');
+            } else if (lowerEmail === 'ronald@xnutra.com' && password === 'dist123') {
+                localStorage.setItem('userRole', 'distributor');
+                localStorage.setItem('userName', 'Ronald');
+                onLogin('Ronald');
+            } else if (lowerEmail === 'roxana@xnutra.com' && password === 'dist123') {
+                localStorage.setItem('userRole', 'distributor');
+                localStorage.setItem('userName', 'Roxana');
+                onLogin('Roxana');
             } else {
                 alert('Credenciales de grado científico rechazadas.');
             }

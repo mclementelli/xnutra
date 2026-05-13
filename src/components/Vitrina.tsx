@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { products, Product } from '../data/products';
-import { Zap, X, Info, ShieldCheck, Microscope, MessageSquare, Activity, Target, FlaskConical, Heart, Stethoscope, ShoppingCart, Download } from 'lucide-react';
+import { Zap, X, Info, ShieldCheck, Microscope, MessageSquare, Activity, Target, FlaskConical, Heart, Stethoscope, ShoppingCart, Download, Utensils } from 'lucide-react';
+import { DietGeneratorFlow } from './DietGeneratorFlow';
+import { TestomaxGeneratorFlow } from './TestomaxGeneratorFlow';
 
-const ProductCard = ({ product, onOpenClinical }: any) => {
+const ProductCard = ({ product, onOpenClinical, onOpenDetail }: any) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -15,7 +17,7 @@ const ProductCard = ({ product, onOpenClinical }: any) => {
             <div className="absolute -inset-4 bg-gradient-to-b from-white/5 to-transparent rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
             <div className="relative flex-1 bg-[var(--panel-bg)] border border-[var(--border-color)] rounded-[3.5rem] overflow-hidden transition-all duration-500 hover:border-xnutra-neon hover:shadow-[0_0_50px_rgba(0,242,255,0.15)] flex flex-col min-h-[720px]">
-                <div className="relative h-[360px] overflow-hidden bg-black/5 flex items-center justify-center p-8">
+                <div className="relative h-[360px] overflow-hidden bg-black/5 flex items-center justify-center p-8 cursor-pointer" onClick={() => onOpenDetail?.(product)}>
                     <div className="absolute top-8 left-8 z-20 flex flex-col gap-2">
                         <span className="px-4 py-1.5 rounded-full border border-xnutra-neon/30 bg-xnutra-neon/10 text-xnutra-neon text-[9px] font-black uppercase tracking-[0.2em] backdrop-blur-md">Pureza Estandarizada</span>
                         <span className="px-4 py-1.5 rounded-full border border-white/20 bg-white/5 text-white/60 text-[9px] font-black uppercase tracking-[0.2em] backdrop-blur-md italic">Grado Concentrado</span>
@@ -62,6 +64,13 @@ const ProductCard = ({ product, onOpenClinical }: any) => {
                         >
                             <Microscope size={18} className="group-hover:rotate-12 transition-transform" />
                             Ver Ficha Nutra mg
+                        </button>
+                        <button
+                            onClick={() => onOpenDetail?.(product)}
+                            className="w-full mt-4 bg-xnutra-neon text-black py-6 rounded-[2.5rem] font-black text-[11px] uppercase flex items-center justify-center gap-3 hover:bg-white transition-all hover:scale-[1.05] active:scale-95 shadow-xl group"
+                        >
+                            <ShoppingCart size={18} className="group-hover:-rotate-12 transition-transform" />
+                            Ver Detalles y Adquirir
                         </button>
                     </div>
                 </div>
@@ -169,9 +178,37 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
                                     <div className="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
                                         <Activity size={200} />
                                     </div>
-                                    <p className="text-[var(--text-color)]/90 text-justify text-base md:text-lg lg:text-xl leading-relaxed font-bold italic relative z-10">
-                                        {product.clinicalProfile}
-                                    </p>
+                                    <div className="text-[var(--text-color)]/90 text-justify text-base md:text-lg lg:text-xl leading-relaxed font-bold italic relative z-10 space-y-6">
+                                        {Array.isArray(product.clinicalProfile) && product.clinicalProfile.map((section: any, idx: number) => {
+                                            if (section.type === 'header') {
+                                                return <p key={idx} className="text-xl md:text-2xl font-black text-[var(--text-color)]">{section.content}</p>;
+                                            }
+                                            if (section.type === 'point') {
+                                                return (
+                                                    <div key={idx} className="space-y-2">
+                                                        <p className="font-black text-[var(--text-color)]">{section.title}</p>
+                                                        <p className="opacity-90">{section.content}</p>
+                                                    </div>
+                                                );
+                                            }
+                                            if (section.type === 'list-item') {
+                                                return (
+                                                    <div key={idx} className="ml-6 pl-2 border-l-2 border-xnutra-neon/30">
+                                                        <p>
+                                                            <strong className="font-black text-[var(--text-color)] mr-2">{section.title}</strong>
+                                                            <span className="opacity-90">{section.content}</span>
+                                                        </p>
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <p key={idx} className="opacity-90">
+                                                    {section.title && <strong className="font-black text-[var(--text-color)] mr-2">{section.title}</strong>}
+                                                    {section.content}
+                                                </p>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </motion.div>
                         )}
@@ -242,7 +279,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
     );
 };
 
-const DetailModal = ({ product, onClose, onOpenCheckout }: any) => {
+const DetailModal = ({ product, onClose, onOpenCheckout, onOpenDietGenerator, onOpenTestomaxGenerator }: any) => {
     const [activeBenefits, setActiveBenefits] = useState<string | null>(null);
 
     return (
@@ -282,17 +319,33 @@ const DetailModal = ({ product, onClose, onOpenCheckout }: any) => {
                         <div className="w-full space-y-4">
                             <button
                                 onClick={() => onOpenCheckout(product)}
-                                className="w-full bg-xnutra-neon text-black py-8 rounded-[3rem] font-black text-2xl uppercase flex items-center justify-center gap-5 hover:bg-white transition-all shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:scale-[1.03] active:scale-95 group"
+                                className="w-full bg-xnutra-neon text-black py-8 rounded-[3rem] font-black text-xl uppercase flex items-center justify-center gap-5 hover:bg-white transition-all shadow-[0_0_50px_rgba(0,242,255,0.3)] hover:scale-[1.03] active:scale-95 group"
                             >
                                 <ShoppingCart size={32} />
                                 Iniciar Activación
                             </button>
                             <button
                                 onClick={() => window.open(`https://wa.me/591XXXXXXXX?text=${encodeURIComponent(`Hola! Me interesa el producto ${product.name}`)}`, '_blank')}
-                                className="w-full bg-white/5 border border-white/10 text-white py-6 rounded-[3rem] font-black text-xs uppercase flex items-center justify-center gap-4 hover:bg-white/10 transition-all"
+                                className="w-full bg-[#25D366] text-white py-6 rounded-[3rem] font-black text-xs uppercase flex items-center justify-center gap-4 hover:bg-[#128C7E] transition-all shadow-[0_0_30px_rgba(37,211,102,0.3)]"
                             >
                                 <MessageSquare size={20} /> Asesoría Vía WhatsApp
                             </button>
+                            {product.id === 'siluetta' && (
+                                <button
+                                    onClick={onOpenDietGenerator}
+                                    className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-6 rounded-[3rem] font-black text-sm uppercase flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(212,62,255,0.4)] mt-4 border border-white/20"
+                                >
+                                    <Utensils size={20} /> Generar Dieta Personalizada y Cálculo de Peso Ideal
+                                </button>
+                            )}
+                            {product.id === 'testomax' && (
+                                <button
+                                    onClick={onOpenTestomaxGenerator}
+                                    className="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-6 rounded-[3rem] font-black text-sm uppercase flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,62,62,0.4)] mt-4 border border-white/20"
+                                >
+                                    <Activity size={20} /> Evaluar Salud Masculina
+                                </button>
+                            )}
                         </div>
                     </div>
                     <div className="lg:col-span-7 p-12 lg:p-24 overflow-y-auto">
@@ -383,6 +436,8 @@ const DetailModal = ({ product, onClose, onOpenCheckout }: any) => {
 
 export const Vitrina = () => {
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [isDietGeneratorOpen, setIsDietGeneratorOpen] = useState(false);
+    const [isTestomaxGeneratorOpen, setIsTestomaxGeneratorOpen] = useState(false);
 
     return (
         <section className="bg-[var(--bg-color)] py-40 px-4 overflow-hidden transition-colors duration-300" id="vitrina">
@@ -414,6 +469,7 @@ export const Vitrina = () => {
                             key={product.id}
                             product={product}
                             onOpenClinical={(p: any) => (window as any).openClinical?.(p)}
+                            onOpenDetail={(p: any) => setSelectedProduct(p)}
                         />
                     ))}
                 </div>
@@ -441,9 +497,22 @@ export const Vitrina = () => {
                         product={selectedProduct}
                         onClose={() => setSelectedProduct(null)}
                         onOpenCheckout={(p: any) => (window as any).openCheckout?.(p)}
+                        onOpenDietGenerator={() => setIsDietGeneratorOpen(true)}
+                        onOpenTestomaxGenerator={() => setIsTestomaxGeneratorOpen(true)}
                     />
                 )}
             </AnimatePresence>
+
+            <DietGeneratorFlow 
+                isOpen={isDietGeneratorOpen}
+                onClose={() => setIsDietGeneratorOpen(false)}
+                productColor={products.find(p => p.id === 'siluetta')?.color || '#d43eff'}
+            />
+            <TestomaxGeneratorFlow 
+                isOpen={isTestomaxGeneratorOpen}
+                onClose={() => setIsTestomaxGeneratorOpen(false)}
+                productColor={products.find(p => p.id === 'testomax')?.color || '#ff3e3e'}
+            />
         </section>
     );
 };

@@ -114,9 +114,37 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
                                 </div>
                                 <div className="bg-[var(--bg-color)] border border-[var(--border-color)] p-6 md:p-10 rounded-[2rem] hover:border-xnutra-neon/30 transition-all shadow-xl relative overflow-hidden">
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-xnutra-neon/5 blur-[100px] rounded-full pointer-events-none" />
-                                    <p className="text-[var(--text-color)]/90 text-justify text-base md:text-lg leading-loose font-medium relative z-10">
-                                        {product.clinicalProfile}
-                                    </p>
+                                    <div className="text-[var(--text-color)] text-justify text-base md:text-lg leading-loose font-medium relative z-10 clinical-profile-content space-y-6">
+                                        {Array.isArray(product.clinicalProfile) && product.clinicalProfile.map((section, idx) => {
+                                            if (section.type === 'header') {
+                                                return <p key={idx} className="text-xl md:text-2xl font-black text-[var(--text-color)]">{section.content}</p>;
+                                            }
+                                            if (section.type === 'point') {
+                                                return (
+                                                    <div key={idx} className="space-y-2">
+                                                        <p className="font-black text-[var(--text-color)]">{section.title}</p>
+                                                        <p className="opacity-90">{section.content}</p>
+                                                    </div>
+                                                );
+                                            }
+                                            if (section.type === 'list-item') {
+                                                return (
+                                                    <div key={idx} className="ml-6 pl-2 border-l-2 border-xnutra-neon/30">
+                                                        <p>
+                                                            <strong className="font-black text-[var(--text-color)] mr-2">{section.title}</strong>
+                                                            <span className="opacity-90">{section.content}</span>
+                                                        </p>
+                                                    </div>
+                                                );
+                                            }
+                                            return (
+                                                <p key={idx} className="opacity-90">
+                                                    {section.title && <strong className="font-black text-[var(--text-color)] mr-2">{section.title}</strong>}
+                                                    {section.content}
+                                                </p>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             </section>
                         )}
@@ -168,3 +196,4 @@ export const ClinicalSheet = ({ product, isOpen, onClose }: ClinicalSheetProps) 
         </AnimatePresence>
     );
 };
+

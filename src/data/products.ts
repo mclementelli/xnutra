@@ -13,7 +13,11 @@ export interface Product {
     ingredients: string[];
     formulation: Formulation[];
     scientificProof?: string;
-    clinicalProfile?: string;
+    clinicalProfile?: {
+        type: 'header' | 'paragraph' | 'point' | 'list-item';
+        title?: string;
+        content: string;
+    }[];
     usage: string;
     price: number;
     image: string;
@@ -36,7 +40,15 @@ export const products: Product[] = [
             { name: 'Extracto de Maca', mg: 145, description: 'Lepidium meyenii.', benefits: 'Apoya el rendimiento íntimo y energía total.' }
         ],
         scientificProof: 'Incremento documentado en la síntesis de energía celular.',
-        clinicalProfile: 'El mecanismo de acción de TestoMax se fundamenta en la modulación del eje hipotálamo-hipófisis-gonadal (HHG). La Icariina, su flavonoide bioactivo, actúa como un inhibidor natural de la enzima PDE5. Esto favorece una vasodilatación profunda del endotelio pélvico al incrementar los niveles de óxido nítrico, revirtiendo problemas de flujo sanguíneo y optimizando la función eréctil. Paralelamente, los extractos sinérgicos de Tribulus Terrestris y Maca Andina estimulan la secreción de la Hormona Luteinizante (LH). Esta hormona envía señales directas a las células de Leydig en los testículos para incrementar endógenamente la biosíntesis de testosterona libre. La adición de la Raíz de Ortiga aporta un mecanismo complementario crítico: sus lignanos se unen con alta afinidad a la globulina fijadora de hormonas sexuales (SHBG), impidiendo que esta proteína neutralice la testosterona, lo cual dispara los niveles de hormona biodisponible en el plasma sanguíneo. A nivel sistémico, el Ginseng ejerce una función como potente bioadaptógeno que disminuye el estrés oxidativo celular y revierte el daño mitocondrial crónico, restaurando la tasa de rendimiento neuromuscular y promoviendo una homeostasis endocrina que contribuye directamente a la desinflamación y protección de los tejidos prostáticos.',
+        clinicalProfile: [
+            { type: 'header', content: 'Mecanismo de Acción: ¿Cómo funciona TestoMax?' },
+            { type: 'paragraph', content: 'El objetivo central de TestoMax es reactivar el sistema natural de producción hormonal del hombre, trabajando en tres frentes específicos:' },
+            { type: 'point', title: '1. Estimulación de la Testosterona Natural', content: 'A diferencia de los tratamientos sintéticos, este compuesto utiliza extractos como el Tribulus y la Maca para enviar una señal directa desde el cerebro hacia los testículos. Esto ordena al cuerpo aumentar la fabricación de testosterona propia, mejorando la energía y el rendimiento físico desde la fuente.' },
+            { type: 'point', title: '2. Liberación de la Hormona "Bloqueada"', content: 'Mucha de la testosterona que ya circula en tu sangre está "atrapada" por una proteína llamada SHBG, lo que la vuelve inactiva. La Raíz de Ortiga actúa como una llave que libera esa hormona, logrando que haya más testosterona libre y disponible para que los músculos y el organismo puedan utilizarla realmente.' },
+            { type: 'point', title: '3. Optimización del Flujo Sanguíneo y Función Eréctil', content: 'Gracias a la Icariina, el suplemento ayuda a relajar los vasos sanguíneos de la zona pélvica. Al mejorar la circulación y los niveles de óxido nítrico, se facilita una respuesta eréctil más firme y constante, corrigiendo problemas de flujo que aparecen con la edad o el estrés.' },
+            { type: 'point', title: '4. Recuperación Celular y Protección Prostática', content: 'Finalmente, componentes como el Ginseng actúan como protectores celulares. Ayudan al cuerpo a adaptarse al estrés y reducen el desgaste de los tejidos. Esto no solo mejora la resistencia muscular, sino que ayuda a mantener un equilibrio interno que favorece la salud de la próstata y reduce la inflamación sistémica.' },
+            { type: 'paragraph',  title: 'En resumen:', content: 'TestoMax no solo busca subir los niveles de testosterona, sino asegurar que esa hormona esté libre para trabajar, que el flujo sanguíneo sea el adecuado y que el sistema endocrino funcione sin el estrés que lo ralentiza.' }
+        ],
         usage: '1 cápsula (800mg) diaria.',
         price: 399,
         image: '/assets/testomax.png',
@@ -56,7 +68,17 @@ export const products: Product[] = [
             { name: 'Té Verde', mg: 130, description: 'Camellia sinensis.', benefits: 'Acelerador metabólico para bienestar diario.' }
         ],
         scientificProof: 'Eficacia clínica en la regulación del peso y bienestar corporal.',
-        clinicalProfile: 'El perfil farmacodinámico de Siluetta opera mediante múltiples rutas metabólicas diseñadas para revertir el daño endocrino asociado a la resistencia a la insulina, la hipertrofia de los adipocitos y el estrés inflamatorio subyacente. El Ácido Hidroxicítrico (HCA), derivado del fruto de Garcinia Cambogia, ejerce un bloqueo competitivo sobre la enzima dependiente de ATP (citrato liasa), interrumpiendo abruptamente el ciclo de lipogénesis de novo (formación de nueva grasa) a nivel hepático. Este desvío enzimático promueve la reposición inmediata de las reservas de glucógeno endógeno, lo cual emite una señal aferente de saciedad de alta intensidad hacia el núcleo ventromedial del hipotálamo, suprimiendo efectivamente la hiperfagia neurogénica (hambre ansiosa). Simbiontemente, las potentes catequinas derivadas de la Camellia sinensis (Té Verde), en particular el Epigalocatequina galato (EGCG), previenen la degradación sináptica de la noradrenalina mediante la inhibición alostérica de la enzima Catecol-O-metiltransferasa (COMT). Esto sostiene una hiperactivación favorable del sistema nervioso autónomo simpático simpático e induce un estado de termogénesis celular continua que acelera exponencialmente la lipólisis intracelular (oxidación y descomposición de ácidos grasos a nivel mitocondrial). Su accionar sinérgico es catalizado por las propiedades colagogas y coleréticas del Diente de León junto a las antraquinonas purificadas de la Cáscara Sagrada. Esta interacción fitoquímica desencadena una depuración diurética-osmótica intensiva del tracto gastrointestinal y el sistema linfático. El resultado es la reversión del estasis venolinfático, una disminución drástica del edema por retención intersticial y una mitigación de la inflamación sistémica de bajo grado, restaurando la flexibilidad homeostática metabólica que recodifica el uso preferencial de la grasa almacenada, en lugar de glucosa exógena, para la generación de ATP.',
+        clinicalProfile: [
+            { type: 'header', content: 'Mecanismo de Acción: ¿Cómo transforma Siluetta tu metabolismo?' },
+            { type: 'paragraph', content: 'Siluetta no es un simple quemador de grasa; es un reprogramador metabólico que actúa bajo tres pilares científicos:' },
+            { type: 'point', title: '1. Bloqueo de la Fabricación de Grasa (Lipogénesis)', content: 'El componente activo HCA interviene directamente en el hígado para detener la enzima encargada de convertir los carbohidratos en grasa nueva. En lugar de almacenarse, esa energía se envía a tus reservas de glucógeno. Esto genera una señal de saciedad natural en el cerebro, eliminando el hambre ansiosa o "hambre cerebral" desde la raíz.' },
+            { type: 'point', title: '2. Activación de la Quema de Grasa Continua (Termogénesis)', content: 'A través de las catequinas del Té Verde, Siluetta mantiene elevados los niveles de noradrenalina en el cuerpo. Esto pone a tus células en un estado de oxidación de grasa constante, obligando a las mitocondrias (las centrales de energía de tus células) a utilizar la grasa acumulada como combustible principal para producir energía (ATP), incluso cuando estás en reposo.' },
+            { type: 'point', title: '3. Depuración Linfática y Anti-inflamatoria', content: 'Uno de los mayores obstáculos para bajar de peso es la retención de líquidos y la inflamación interna. El Diente de León y la Cáscara Sagrada actúan como un equipo de limpieza que:' },
+            { type: 'list-item', title: 'Elimina el exceso de líquidos:', content: 'Revierte el edema y la hinchazón en los tejidos.' },
+            { type: 'list-item', title: 'Depuración Gastrointestinal:', content: 'Optimiza el tránsito y limpia el sistema linfático.' },
+            { type: 'list-item', title: 'Homeostasis:', content: 'Restaura el equilibrio para que el cuerpo deje de estar "estancado" y responda mejor a la pérdida de peso.' },
+            { type: 'paragraph', title: 'En resumen:', content: 'Siluetta cierra la "fábrica" de grasa nueva, acelera el "horno" celular para quemar la grasa vieja y limpia los "filtros" del cuerpo para eliminar toxinas y líquidos retenidos. Es pasar de un cuerpo que guarda energía a un cuerpo que la libera.' }
+        ],
         usage: '1 cápsula (800mg) diaria con la cena.',
         price: 399,
         image: '/assets/siluetta.png',

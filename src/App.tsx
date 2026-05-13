@@ -77,19 +77,13 @@ function App() {
         <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-color)] font-sans selection:bg-xnutra-neon selection:text-black transition-colors duration-300">
             {/* Header / Nav */}
             <nav className="fixed top-0 left-0 w-full z-[100] backdrop-blur-3xl border-b border-[var(--border-color)] bg-[var(--bg-color)]/40">
-                <div className="max-w-[1600px] mx-auto px-10 h-24 flex items-center justify-between">
+                <div className="max-w-[1600px] mx-auto px-10 h-28 flex items-center justify-between">
                     <div className="flex items-center gap-6 cursor-pointer group" onClick={() => setActiveTab('vitrina')}>
-                        <div className="flex flex-col">
-                            <h1 className="text-lg md:text-3xl font-black tracking-tighter text-[var(--text-color)] leading-[0.85] uppercase italic flex items-center gap-2">
-                                XNUTRA <span className="text-xnutra-neon">SOLUTIONS</span>
-                            </h1>
-                            <div className="flex items-center gap-2 mt-2">
-                                <div className="h-[1px] w-10 bg-xnutra-neon/50" />
-                                <span className="text-[10px] font-black tracking-[0.5em] text-[var(--text-color)]/40 uppercase italic">
-                                    PRECISION BIOTECH
-                                </span>
-                            </div>
-                        </div>
+                        <img 
+                            src="/assets/xnutra-logo.png" 
+                            alt="XNutra Solutions Logo" 
+                            className="h-20 md:h-28 scale-[1.15] origin-left object-contain drop-shadow-[0_0_15px_rgba(0,180,255,0.4)] transition-transform duration-300 group-hover:scale-[1.2]" 
+                        />
                     </div>
 
                     <div className="hidden lg:flex items-center gap-12 bg-[var(--panel-bg)] px-10 py-3 rounded-full border border-[var(--border-color)] backdrop-blur-md">
