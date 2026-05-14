@@ -77,7 +77,7 @@ export const products: Product[] = [
             { type: 'point', title: '4. Mejora la digestión y el tránsito intestinal', content: 'La Cáscara Sagrada ayuda al organismo a mantener un mejor tránsito intestinal, favoreciendo sensación de ligereza y mejorando la eliminación de desechos.' },
             { type: 'paragraph', title: 'En resumen:', content: 'Siluetta ayuda a controlar el apetito, disminuir ansiedad por comer, reducir hinchazón y apoyar la quema de grasa de forma progresiva para ayudar al cuerpo a sentirse más liviano y activo.' }
         ],
-        usage: '1 cápsula (800mg) diaria con la cena.',
+        usage: '1 cápsula (800mg) diaria con el desayuno.',
         price: 399,
         image: '/assets/siluetta.png',
         category: 'wellness',
