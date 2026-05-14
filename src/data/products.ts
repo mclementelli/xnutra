@@ -41,13 +41,13 @@ export const products: Product[] = [
         ],
         scientificProof: 'Incremento documentado en la síntesis de energía celular.',
         clinicalProfile: [
-            { type: 'header', content: 'Mecanismo de Acción: ¿Cómo funciona TestoMax?' },
-            { type: 'paragraph', content: 'El objetivo central de TestoMax es reactivar el sistema natural de producción hormonal del hombre, trabajando en tres frentes específicos:' },
-            { type: 'point', title: '1. Estimulación de la Testosterona Natural', content: 'A diferencia de los tratamientos sintéticos, este compuesto utiliza extractos como el Tribulus y la Maca para enviar una señal directa desde el cerebro hacia los testículos. Esto ordena al cuerpo aumentar la fabricación de testosterona propia, mejorando la energía y el rendimiento físico desde la fuente.' },
-            { type: 'point', title: '2. Liberación de la Hormona "Bloqueada"', content: 'Mucha de la testosterona que ya circula en tu sangre está "atrapada" por una proteína llamada SHBG, lo que la vuelve inactiva. La Raíz de Ortiga actúa como una llave que libera esa hormona, logrando que haya más testosterona libre y disponible para que los músculos y el organismo puedan utilizarla realmente.' },
-            { type: 'point', title: '3. Optimización del Flujo Sanguíneo y Función Eréctil', content: 'Gracias a la Icariina, el suplemento ayuda a relajar los vasos sanguíneos de la zona pélvica. Al mejorar la circulación y los niveles de óxido nítrico, se facilita una respuesta eréctil más firme y constante, corrigiendo problemas de flujo que aparecen con la edad o el estrés.' },
-            { type: 'point', title: '4. Recuperación Celular y Protección Prostática', content: 'Finalmente, componentes como el Ginseng actúan como protectores celulares. Ayudan al cuerpo a adaptarse al estrés y reducen el desgaste de los tejidos. Esto no solo mejora la resistencia muscular, sino que ayuda a mantener un equilibrio interno que favorece la salud de la próstata y reduce la inflamación sistémica.' },
-            { type: 'paragraph',  title: 'En resumen:', content: 'TestoMax no solo busca subir los niveles de testosterona, sino asegurar que esa hormona esté libre para trabajar, que el flujo sanguíneo sea el adecuado y que el sistema endocrino funcione sin el estrés que lo ralentiza.' }
+            { type: 'header', content: '¿Cómo funciona TestoMax?' },
+            { type: 'paragraph', content: 'TestoMax trabaja en 4 áreas que muchos hombres comienzan a sentir afectadas con el estrés, la edad y el desgaste físico diario:' },
+            { type: 'point', title: '1. Más energía y fuerza física', content: 'Ingredientes como la Maca y el Tribulus ayudan al cuerpo a recuperar energía, mejorar el rendimiento físico y disminuir la sensación de agotamiento constante.' },
+            { type: 'point', title: '2. Mejor aprovechamiento de la testosterona natural', content: 'Con el tiempo, parte de la testosterona del cuerpo deja de ser aprovechada correctamente. La Ortiga ayuda a que una mayor cantidad pueda ser utilizada por el organismo, favoreciendo fuerza, ánimo y rendimiento masculino.' },
+            { type: 'point', title: '3. Mejor circulación y rendimiento íntimo', content: 'La Icariina ayuda a mejorar el flujo sanguíneo, especialmente en la zona íntima masculina, favoreciendo erecciones más firmes y una mejor respuesta física.' },
+            { type: 'point', title: '4. Menos desgaste físico y estrés', content: 'El Ginseng ayuda al cuerpo a soportar mejor el cansancio físico y mental, mejorando resistencia, recuperación y sensación de vitalidad diaria.' },
+            { type: 'paragraph', title: 'En resumen:', content: 'TestoMax fue desarrollado para ayudar al hombre a recuperar energía, rendimiento físico, circulación y vitalidad masculina de forma progresiva y natural.' }
         ],
         usage: '1 cápsula (800mg) diaria.',
         price: 399,
@@ -69,15 +69,13 @@ export const products: Product[] = [
         ],
         scientificProof: 'Eficacia clínica en la regulación del peso y bienestar corporal.',
         clinicalProfile: [
-            { type: 'header', content: 'Mecanismo de Acción: ¿Cómo transforma Siluetta tu metabolismo?' },
-            { type: 'paragraph', content: 'Siluetta no es un simple quemador de grasa; es un reprogramador metabólico que actúa bajo tres pilares científicos:' },
-            { type: 'point', title: '1. Bloqueo de la Fabricación de Grasa (Lipogénesis)', content: 'El componente activo HCA interviene directamente en el hígado para detener la enzima encargada de convertir los carbohidratos en grasa nueva. En lugar de almacenarse, esa energía se envía a tus reservas de glucógeno. Esto genera una señal de saciedad natural en el cerebro, eliminando el hambre ansiosa o "hambre cerebral" desde la raíz.' },
-            { type: 'point', title: '2. Activación de la Quema de Grasa Continua (Termogénesis)', content: 'A través de las catequinas del Té Verde, Siluetta mantiene elevados los niveles de noradrenalina en el cuerpo. Esto pone a tus células en un estado de oxidación de grasa constante, obligando a las mitocondrias (las centrales de energía de tus células) a utilizar la grasa acumulada como combustible principal para producir energía (ATP), incluso cuando estás en reposo.' },
-            { type: 'point', title: '3. Depuración Linfática y Anti-inflamatoria', content: 'Uno de los mayores obstáculos para bajar de peso es la retención de líquidos y la inflamación interna. El Diente de León y la Cáscara Sagrada actúan como un equipo de limpieza que:' },
-            { type: 'list-item', title: 'Elimina el exceso de líquidos:', content: 'Revierte el edema y la hinchazón en los tejidos.' },
-            { type: 'list-item', title: 'Depuración Gastrointestinal:', content: 'Optimiza el tránsito y limpia el sistema linfático.' },
-            { type: 'list-item', title: 'Homeostasis:', content: 'Restaura el equilibrio para que el cuerpo deje de estar "estancado" y responda mejor a la pérdida de peso.' },
-            { type: 'paragraph', title: 'En resumen:', content: 'Siluetta cierra la "fábrica" de grasa nueva, acelera el "horno" celular para quemar la grasa vieja y limpia los "filtros" del cuerpo para eliminar toxinas y líquidos retenidos. Es pasar de un cuerpo que guarda energía a un cuerpo que la libera.' }
+            { type: 'header', content: '¿Cómo funciona Siluetta?' },
+            { type: 'paragraph', content: 'Siluetta ayuda al cuerpo a controlar el apetito, utilizar mejor la grasa acumulada y disminuir la sensación de hinchazón desde varios frentes al mismo tiempo.' },
+            { type: 'point', title: '1. Ayuda a controlar el hambre y la ansiedad por comer', content: 'El HCA ayuda a disminuir el deseo constante de comer, especialmente antojos de azúcar y comidas altas en carbohidratos. Esto permite que la persona se sienta satisfecha más rápido y coma con más control durante el día.' },
+            { type: 'point', title: '2. Ayuda al cuerpo a usar la grasa como energía', content: 'El Té Verde ayuda a acelerar el metabolismo y favorece que el cuerpo utilice más grasa acumulada como fuente de energía, incluso durante actividades normales del día.' },
+            { type: 'point', title: '3. Disminuye la hinchazón y la retención de líquidos', content: 'Ingredientes como el Diente de León ayudan al cuerpo a eliminar líquidos retenidos, reduciendo sensación de pesadez, inflamación e hinchazón abdominal.' },
+            { type: 'point', title: '4. Mejora la digestión y el tránsito intestinal', content: 'La Cáscara Sagrada ayuda al organismo a mantener un mejor tránsito intestinal, favoreciendo sensación de ligereza y mejorando la eliminación de desechos.' },
+            { type: 'paragraph', title: 'En resumen:', content: 'Siluetta ayuda a controlar el apetito, disminuir ansiedad por comer, reducir hinchazón y apoyar la quema de grasa de forma progresiva para ayudar al cuerpo a sentirse más liviano y activo.' }
         ],
         usage: '1 cápsula (800mg) diaria con la cena.',
         price: 399,

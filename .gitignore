@@ -32,3 +32,4 @@ dist-ssr
 
 build_log.txt
 index.old.html
+.vercel

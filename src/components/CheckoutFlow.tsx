@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ShoppingCart, User, MapPin, CreditCard, QrCode, Package, CheckCircle2, Minus, Plus, ArrowRight } from 'lucide-react';
 import { Product } from '../data/products';
+import { supabase } from '../lib/supabase';
 
 interface CheckoutFlowProps {
     product: Product;
@@ -34,8 +35,22 @@ export const CheckoutFlow = ({ product, isOpen, onClose }: CheckoutFlowProps) =>
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = () => {
-        // Aquí iría la lógica de procesamiento de pago
+    const handleSubmit = async () => {
+        try {
+            const { error } = await supabase.from('contabilidad').insert([{
+                fecha: new Date().toISOString().split('T')[0],
+                producto: product.name,
+                distribuidor: 'Venta Directa',
+                cantidad: quantity,
+                precio_unitario: product.price,
+                publicidad: 0,
+                pagos: total,
+                notas: `Cliente: ${formData.name} (${formData.phone}) - ${formData.city}`
+            }]);
+            if (error) console.error('Error logging sale:', error);
+        } catch (err) {
+            console.error('Supabase error:', err);
+        }
         setStep('success');
     };
 

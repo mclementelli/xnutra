@@ -32,7 +32,7 @@ export const Footer = ({ onNavigate }: FooterProps) => {
                     </div>
 
                     <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
-                        <FooterGroup onNavigate={onNavigate} title="Ecosistema" links={['Vitrina', 'MedMatch IA', 'Noticias', 'Protocolos']} />
+                        <FooterGroup onNavigate={onNavigate} title="Ecosistema" links={['Vitrina', 'MedMatch IA', 'Noticias', 'Protocolos', 'Centro Neuronal', 'Dietas Personalizadas']} />
                         <FooterGroup onNavigate={onNavigate} title="Legal" links={['Políticas de Privacidad', 'Términos de Uso', 'Garantía 100%', 'Aviso de Salud']} />
                         <div className="col-span-2 md:col-span-1 border-t md:border-t-0 md:border-l border-[var(--border-color)] pt-10 md:pt-0 md:pl-10">
                             <h4 className="text-xnutra-neon text-[10px] font-black uppercase tracking-[0.5em] mb-8 italic">Desarrollado por</h4>
@@ -84,10 +84,12 @@ const FooterGroup = ({ title, links, onNavigate }: any) => {
         'MedMatch IA': '#medmatch',
         'Noticias': '#noticias',
         'Protocolos': '#vitrina',
+        'Dietas Personalizadas': '#vitrina',
+        'Centro Neuronal': 'admin',
         'Políticas de Privacidad': 'privacy',
         'Términos de Uso': 'terms',
         'Garantía 100%': 'guarantee',
-        'Aviso de Salud': 'news'
+        'Aviso de Salud': 'health'
     };
 
     const handleClick = (e: React.MouseEvent, link: string) => {

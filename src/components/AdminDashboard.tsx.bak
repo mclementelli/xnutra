@@ -1,0 +1,2 @@
+﻿"export const AdminDashboard = () => {\n    const [activeTab, setActiveTab] = useState<'entregas' | 'pagos' | 'inventario' | 'reportes'>('entregas');\n    const [deliveries, setDeliveries] = useState<Delivery[]>([]);\n    const [payments, setPayments] = us
+<truncated 40214 bytes>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { products, Product } from '../data/products';
 import { Zap, X, Info, ShieldCheck, Microscope, MessageSquare, Activity, Target, FlaskConical, Heart, Stethoscope, ShoppingCart, Download, Utensils } from 'lucide-react';
 import { DietGeneratorFlow } from './DietGeneratorFlow';
-import { TestomaxGeneratorFlow } from './TestomaxGeneratorFlow';
+import { EnergyVitalityQuiz } from './EnergyVitalityQuiz';
 
 const ProductCard = ({ product, onOpenClinical, onOpenDetail }: any) => {
     return (
@@ -279,7 +279,7 @@ export const ClinicalSheet = ({ product, onClose }: { product: Product, onClose:
     );
 };
 
-const DetailModal = ({ product, onClose, onOpenCheckout, onOpenDietGenerator, onOpenTestomaxGenerator }: any) => {
+const DetailModal = ({ product, onClose, onOpenCheckout, onOpenDietGenerator, onOpenEnergyQuiz }: any) => {
     const [activeBenefits, setActiveBenefits] = useState<string | null>(null);
 
     return (
@@ -340,10 +340,10 @@ const DetailModal = ({ product, onClose, onOpenCheckout, onOpenDietGenerator, on
                             )}
                             {product.id === 'testomax' && (
                                 <button
-                                    onClick={onOpenTestomaxGenerator}
+                                    onClick={onOpenEnergyQuiz}
                                     className="w-full bg-gradient-to-r from-red-600 to-orange-500 text-white py-6 rounded-[3rem] font-black text-sm uppercase flex items-center justify-center gap-4 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_0_30px_rgba(255,62,62,0.4)] mt-4 border border-white/20"
                                 >
-                                    <Activity size={20} /> Evaluar Salud Masculina
+                                    <Activity size={20} /> Perfil de Energía y Vitalidad
                                 </button>
                             )}
                         </div>
@@ -437,7 +437,7 @@ const DetailModal = ({ product, onClose, onOpenCheckout, onOpenDietGenerator, on
 export const Vitrina = () => {
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
     const [isDietGeneratorOpen, setIsDietGeneratorOpen] = useState(false);
-    const [isTestomaxGeneratorOpen, setIsTestomaxGeneratorOpen] = useState(false);
+    const [isEnergyQuizOpen, setIsEnergyQuizOpen] = useState(false);
 
     return (
         <section className="bg-[var(--bg-color)] py-40 px-4 overflow-hidden transition-colors duration-300" id="vitrina">
@@ -498,7 +498,7 @@ export const Vitrina = () => {
                         onClose={() => setSelectedProduct(null)}
                         onOpenCheckout={(p: any) => (window as any).openCheckout?.(p)}
                         onOpenDietGenerator={() => setIsDietGeneratorOpen(true)}
-                        onOpenTestomaxGenerator={() => setIsTestomaxGeneratorOpen(true)}
+                        onOpenEnergyQuiz={() => setIsEnergyQuizOpen(true)}
                     />
                 )}
             </AnimatePresence>
@@ -508,9 +508,9 @@ export const Vitrina = () => {
                 onClose={() => setIsDietGeneratorOpen(false)}
                 productColor={products.find(p => p.id === 'siluetta')?.color || '#d43eff'}
             />
-            <TestomaxGeneratorFlow 
-                isOpen={isTestomaxGeneratorOpen}
-                onClose={() => setIsTestomaxGeneratorOpen(false)}
+            <EnergyVitalityQuiz
+                isOpen={isEnergyQuizOpen}
+                onClose={() => setIsEnergyQuizOpen(false)}
                 productColor={products.find(p => p.id === 'testomax')?.color || '#ff3e3e'}
             />
         </section>
